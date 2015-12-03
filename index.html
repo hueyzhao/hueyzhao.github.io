@@ -159,6 +159,52 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Thinking In Java读书随笔（1）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/03/Thinking In Java读书随笔（1）/" class="article-date">
+  	<time datetime="2015-12-03T15:55:36.000Z" itemprop="datePublished">2015-12-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Thinking_In_Java读书随笔（1）">Thinking In Java读书随笔（1）</h1><p>标签（空格分隔）： 日志</p>
+<h2 id="Thinking_In_Java读书随笔（1）-1">Thinking In Java读书随笔（1）</h2><p>12月1日笔记：<br>为什么是线程而不是进程</p>
+<ol>
+<li>线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）</li>
+<li>JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。</li>
+</ol>
+<p>12月3日随笔：<br>今天看书，发现之前居然看过thinking这书的并行部分，居然自己一点想不起来，看来上学那会儿看书也真是看的不过心。<br>比较有收获的是对Callable接口的熟悉，看这块的时候突然想起来，今年刚刚开始找工作的时候，面试有人问我线程如果要返回结果，如何获取，我居然说不知道，当时确实忘了还有callable接口这回事儿。好吧，太菜了。<br>总之，现在在git上创建了一个工程，以后看thinking有什么练习都在这个工程里啦。<br>今天才知道JDK里面线程优先级有10个等级，不过由于与多数操作系统映射不太好，才只使用MAX_PRIORITY, NORM_PRIORITY, MIN_PRIORITY. </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-啃书的开始" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
