@@ -5,28 +5,22 @@
   
   <title>你好环先生</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Thinking In Java读书随笔（1）标签（空格分隔）： 日志
-Thinking In Java读书随笔（1）12月1日笔记：为什么是线程而不是进程
+  <meta name="description" content="Mysql字符存储的一些细节和疑问标签（空格分隔）： mysql
 
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序">
+来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你好环先生">
-<meta property="og:url" content="http://yoursite.com/2015/12/03/Thinking In Java读书随笔（1）/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/12/15/Mysql字符存储的一些细节和疑问/index.html">
 <meta property="og:site_name" content="你好环先生">
-<meta property="og:description" content="Thinking In Java读书随笔（1）标签（空格分隔）： 日志
-Thinking In Java读书随笔（1）12月1日笔记：为什么是线程而不是进程
+<meta property="og:description" content="Mysql字符存储的一些细节和疑问标签（空格分隔）： mysql
 
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序">
-<meta property="og:updated_time" content="2015-12-03T15:55:36.000Z">
+来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-1">
+<meta property="og:updated_time" content="2015-12-15T15:01:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你好环先生">
-<meta name="twitter:description" content="Thinking In Java读书随笔（1）标签（空格分隔）： 日志
-Thinking In Java读书随笔（1）12月1日笔记：为什么是线程而不是进程
+<meta name="twitter:description" content="Mysql字符存储的一些细节和疑问标签（空格分隔）： mysql
 
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序">
+来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-1">
   
     <link rel="alternative" href="/atom.xml" title="你好环先生" type="application/atom+xml">
   
@@ -170,11 +164,11 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Thinking In Java读书随笔（1）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Mysql字符存储的一些细节和疑问" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/03/Thinking In Java读书随笔（1）/" class="article-date">
-  	<time datetime="2015-12-03T15:55:36.000Z" itemprop="datePublished">2015-12-03</time>
+      <a href="/2015/12/15/Mysql字符存储的一些细节和疑问/" class="article-date">
+  	<time datetime="2015-12-15T15:01:43.000Z" itemprop="datePublished">2015-12-15</time>
 </a>
     </div>
   
@@ -185,13 +179,18 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Thinking_In_Java读书随笔（1）">Thinking In Java读书随笔（1）</h1><p>标签（空格分隔）： 日志</p>
-<h2 id="Thinking_In_Java读书随笔（1）-1">Thinking In Java读书随笔（1）</h2><p>12月1日笔记：<br>为什么是线程而不是进程</p>
-<ol>
-<li>线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）</li>
-<li>JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。</li>
-</ol>
-<p>12月3日随笔：<br>今天看书，发现之前居然看过thinking这书的并行部分，居然自己一点想不起来，看来上学那会儿看书也真是看的不过心。<br>比较有收获的是对Callable接口的熟悉，看这块的时候突然想起来，今年刚刚开始找工作的时候，面试有人问我线程如果要返回结果，如何获取，我居然说不知道，当时确实忘了还有callable接口这回事儿。好吧，太菜了。<br>总之，现在在git上创建了一个工程，以后看thinking有什么练习都在这个工程里啦。<br>今天才知道JDK里面线程优先级有10个等级，不过由于与多数操作系统映射不太好，才只使用MAX_PRIORITY, NORM_PRIORITY, MIN_PRIORITY. </p>
+        <h1 id="Mysql字符存储的一些细节和疑问">Mysql字符存储的一些细节和疑问</h1><p>标签（空格分隔）： mysql</p>
+<hr>
+<p>来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。<br><strong>中文字符占用问题</strong><br>之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。<br>到底怎么回事？查询了以后发现结论是这样的：<br>GBK编码下一个中文字符占两个字节<br>UTF-8编码下一个中文字符占三个字节<br>UTF-16编码下也是占用两个字节<br>公司的数据库使用的是utf-8的编码，所以是占用三个字节。同事正确！</p>
+<p><strong>varchar长度设计问题</strong><br>另外一个问题是发现公司数据库中varchar的长度都定义为2的幂的长度如（64，128)。不知道为什么。在网上找了好久，发现有的文章说是为了内存对齐，不知道有没有必要，这块没查到相应的文章。</p>
+<p>在查询这个问题的过程中还有写收获：</p>
+<ul>
+<li>mysql的varchar类型的长度在mysql4以前是以字节为单位的。mysql5以后varchar是以字符为单位的。这个没必要再用mysql4去验证了。可以使用以下sql验证：<br><code>SELECT LENGTH(fieldname) FROM tablename</code><br><code>SELECT CHAR_LENGTH(fieldname) FROM tablename</code></li>
+<li>varchar的最长长度为65535个字节。在网上看到篇<a href="https://ruby-china.org/topics/24920" target="_blank" rel="external">文章</a>说utf8下最大能创建到(65535 - 2) / 3 = 21844 余 1，其中减2是因为varchar需要2个字节保存长度，但是实际上我使用了21842才创建成功，不知道是什么原因。</li>
+<li>还有个问题，创建的varchar长度是21842是不是代表着对于非多字节字符，如（abc）来说，使用varchar在数据库中存储的最大长度也是21842？</li>
+<li>当字符数小于等于255时，MySQL只用1个字节来记录，因为2的8次方减1只能存到255。这句话让我有点迷惑，varchar(255)时mysql只用1个字节记录？不是一个中文字符在utf8下就要用3个字节吗？意思是varchar中记录长度的部分只用一个字节吧，是这个意思？</li>
+</ul>
+<p>回头再研究研究！</p>
 
       
     </div>
@@ -201,17 +200,8 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
     
 <nav id="article-nav">
   
-    <a href="/2015/12/15/Mac上安装mysql时踩的坑/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/30/啃书的开始/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/12/15/Mac上安装mysql时踩的坑/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -241,7 +231,7 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Thinking In Java读书随笔（1）" data-title="" data-url="http://yoursite.com/2015/12/03/Thinking In Java读书随笔（1）/"></div>
+	<div class="ds-thread" data-thread-key="Mysql字符存储的一些细节和疑问" data-title="" data-url="http://yoursite.com/2015/12/15/Mysql字符存储的一些细节和疑问/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
