@@ -22,8 +22,6 @@
 
 来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-1">
   
-    <link rel="alternative" href="/atom.xml" title="你好环先生" type="application/atom+xml">
-  
   
     <link rel="icon" href="/favicon.png">
   
@@ -99,6 +97,8 @@
 							
 								<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
 					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
 								<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
 					        
 						</div>
@@ -156,6 +156,8 @@
 				<div class="social">
 					
 						<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
 			        
 						<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
 			        
@@ -288,7 +290,7 @@ rdiv class="duoshuo">
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false
+		open_in_new: true
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>

@@ -22,8 +22,6 @@
 
 今天在做项目的时候，发现了一个bug. 表单中选填项如果未填，提交表单失败。而且，在追踪这个bug的时候，在后端代码里打上了断电，可是提交表单的请求都没有进入到断点中。看来不是我后端写的逻辑的问题。在查找原因的过程中，经前端提醒，说如果他给我传的一个参数是空，然后我用int类型去接收这个参数，spring mvc">
   
-    <link rel="alternative" href="/atom.xml" title="你好环先生" type="application/atom+xml">
-  
   
     <link rel="icon" href="/favicon.png">
   
@@ -99,6 +97,8 @@
 							
 								<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
 					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
 								<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
 					        
 						</div>
@@ -156,6 +156,8 @@
 				<div class="social">
 					
 						<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
 			        
 						<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
 			        
@@ -272,7 +274,7 @@ rdiv class="duoshuo">
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false
+		open_in_new: true
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
