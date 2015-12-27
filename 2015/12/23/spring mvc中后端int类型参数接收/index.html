@@ -22,6 +22,10 @@
 
 今天在做项目的时候，发现了一个bug. 表单中选填项如果未填，提交表单失败。而且，在追踪这个bug的时候，在后端代码里打上了断电，可是提交表单的请求都没有进入到断点中。看来不是我后端写的逻辑的问题。在查找原因的过程中，经前端提醒，说如果他给我传的一个参数是空，然后我用int类型去接收这个参数，spring mvc">
   
+    <link rel="alternative" href="/atom.xml" title="你好环先生" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -33,7 +37,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="/images/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			<img lazy-src="/img/bagua.jpg" class="js-avatar">
 			
 		</a>
 
@@ -44,6 +48,39 @@
 		
 
 		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
 
 		<div class="switch-area">
 			<div class="switch-wrap">
@@ -51,19 +88,39 @@
 					<nav class="header-menu">
 						<ul>
 						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
 						<div class="social">
 							
+								<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+					        
 						</div>
 					</nav>
 				</section>
 				
 				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
 				
 				
 
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">Start from small things</div>
+				</section>
 				
 			</div>
 		</div>
@@ -79,7 +136,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="/images/bagua.jpg" class="js-avatar">
+				<img lazy-src="/img/bagua.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">Huanyu</h1>
@@ -88,12 +145,20 @@
 			<nav class="header-menu">
 				<ul>
 				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
 			<nav class="header-nav">
 				<div class="social">
 					
+						<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+			        
 				</div>
 			</nav>
 		</header>				
@@ -108,6 +173,8 @@
     </div>
   
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
     <div class="article-entry" itemprop="articleBody">
@@ -138,6 +205,41 @@
 </article>
 
 
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="spring mvc中后端int类型参数接收" data-title="" data-url="http://yoursite.com/2015/12/23/spring mvc中后端int类型参数接收/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"awesomehuan.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
@@ -157,18 +259,20 @@
 </footer>
     </div>
     
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
 
 <script>
 	var yiliaConfig = {
-		fancybox: undefined,
-		mathjax: undefined,
-		animate: undefined,
+		fancybox: true,
+		mathjax: true,
+		animate: true,
 		isHome: false,
 		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: undefined
+		open_in_new: false
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -177,6 +281,27 @@
 
 
 
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
   </div>
