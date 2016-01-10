@@ -157,55 +157,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-spring mvc中后端int类型参数接收" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/23/spring mvc中后端int类型参数接收/" class="article-date">
-  	<time datetime="2015-12-23T15:05:47.000Z" itemprop="datePublished">2015-12-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="spring_mvc中后端int类型参数接收">spring mvc中后端int类型参数接收</h1><p>标签（空格分隔）： springmvc</p>
-<hr>
-<p>今天在做项目的时候，发现了一个bug. 表单中选填项如果未填，提交表单失败。而且，在追踪这个bug的时候，在后端代码里打上了断电，可是提交表单的请求都没有进入到断点中。看来不是我后端写的逻辑的问题。<br>在查找原因的过程中，经前端提醒，说如果他给我传的一个参数是空，然后我用int类型去接收这个参数，spring mvc在将空值转化为int的时候会不会有问题，从而导致发送请求失败呢？<br>我觉得很有可能，但是当时上线比较急，让前端在提交表单时，我这边如果使用int接收一个参数，他那边传给我这个参数的时候给一个默认值。这样的情况下，测试通过！<br>事后，自己又研究了下。发现，以后如果想接受int类型的参数，需要这样写:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>, defaultValue = <span class="string">"0"</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
-<p>而之前的写法是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
-<p>没有指定defaultValue。<br>以后开发时注意，使用int接受参数时要指定一个<code>defaultValue</code>。<br>至于spring mvc是如果接收参数，并将参数转化为对应的类型，发生这个现象的真实原因在哪里？这些涉及spring mvc原理，我还要慢慢研究。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-Guawa中tryParse的研究" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/20/Guawa中tryParse的研究/" class="article-date">
-  	<time datetime="2015-12-20T10:06:28.000Z" itemprop="datePublished">2015-12-20</time>
+      <a href="/2016/01/10/Guawa中tryParse的研究/" class="article-date">
+  	<time datetime="2016-01-10T07:36:17.000Z" itemprop="datePublished">2016-01-10</time>
 </a>
     </div>
   
@@ -245,6 +201,50 @@
 <p>这里可以看到，该方法主要使用了<code>Character.digit(string.charAt(offset++), radix)</code>将字符转化为int，并判断输入字符是否合法。将字符转化成int后<code>int next = result * radix - digit;</code>将原数值还原。最后判断正负号，然后返回值。<br>至此，实现原理大白于天下。</p>
 <p>详细用法点<a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/primitives/Ints.html#tryParse(java.lang.String" target="_blank" rel="external">此处</a>)了解。值得一提的是，如果传入的string为带正号，如<code>String s = &quot;+12345&quot;</code>会被拒绝，认为是非法字符。</p>
 <p>##总结<br>JDK自带的Integer.parseInt()方法会抛异常，抛异常影响程序的性能。所以Guawa重新造轮子，有了tryParse方法。原理为扫描字符串中字符，判断是否为数字。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-spring mvc中后端int类型参数接收" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/spring mvc中后端int类型参数接收/" class="article-date">
+  	<time datetime="2015-12-23T15:05:47.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="spring_mvc中后端int类型参数接收">spring mvc中后端int类型参数接收</h1><p>标签（空格分隔）： springmvc</p>
+<hr>
+<p>今天在做项目的时候，发现了一个bug. 表单中选填项如果未填，提交表单失败。而且，在追踪这个bug的时候，在后端代码里打上了断电，可是提交表单的请求都没有进入到断点中。看来不是我后端写的逻辑的问题。<br>在查找原因的过程中，经前端提醒，说如果他给我传的一个参数是空，然后我用int类型去接收这个参数，spring mvc在将空值转化为int的时候会不会有问题，从而导致发送请求失败呢？<br>我觉得很有可能，但是当时上线比较急，让前端在提交表单时，我这边如果使用int接收一个参数，他那边传给我这个参数的时候给一个默认值。这样的情况下，测试通过！<br>事后，自己又研究了下。发现，以后如果想接受int类型的参数，需要这样写:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>, defaultValue = <span class="string">"0"</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
+<p>而之前的写法是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
+<p>没有指定defaultValue。<br>以后开发时注意，使用int接受参数时要指定一个<code>defaultValue</code>。<br>至于spring mvc是如果接收参数，并将参数转化为对应的类型，发生这个现象的真实原因在哪里？这些涉及spring mvc原理，我还要慢慢研究。</p>
 
       
     </div>
