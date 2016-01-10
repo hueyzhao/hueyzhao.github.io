@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
+						<a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
 					</div>
 				</section>
 				
@@ -162,6 +162,230 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-今天接触到的新技术" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/10/今天接触到的新技术/" class="article-date">
+  	<time datetime="2016-01-10T14:21:58.000Z" itemprop="datePublished">2016-01-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/10/今天接触到的新技术/">今天接触到的新技术</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在公司，有发现了公司使用的一些新的技术。也许不算很新了，可能也许是我比较孤落寡闻吧。下面列出来，并列出下一步学习方向。</p>
+<h3 id="1-_Guava"><a href="#1-_Guava" class="headerlink" title="1. Guava"></a>1. Guava</h3><p>谷歌开发的一个针对JAVA集合的一个工具类。今天在做项目的时候遇到，发现竟然能够在方法的参数里面再传递一个方法.</p>
+<ul>
+<li>下一步要研究下这个如何实现的。</li>
+<li>对比Guava与JDK自带方法的异同</li>
+</ul>
+<h3 id="2-_Thrift"><a href="#2-_Thrift" class="headerlink" title="2. Thrift"></a>2. Thrift</h3><p>一个更加轻量级服务器开发框架，Facebook开发的。了解如何使用，搭建出一个Hello World工程</p>
+<h3 id="3-_Require_JS"><a href="#3-_Require_JS" class="headerlink" title="3. Require JS"></a>3. Require JS</h3><p>好久不写前端，不知道前端的技术更新。今天仔细看了看前端的代码，发现看不懂。一查，发现用这个写的，一个比Jquery更加轻量级的前端框架。</p>
+<ul>
+<li>了解如何用这个框架发送ajax请求。</li>
+<li>搞清我最近开发的模块，前端部分的代码，js部分实现原理。</li>
+</ul>
+<h3 id="4-_u5176_u4ED6_u65B9_u9762"><a href="#4-_u5176_u4ED6_u65B9_u9762" class="headerlink" title="4.其他方面"></a>4.其他方面</h3><p>jetty集群配置，以及如何用nignx分发request。</p>
+<p>对了，关于上次mysql中varchar的疑问，设置长度的时候varchar不超过255的时候，是记录varchar长度的部分只需要一个字节。这点确定了。</p>
+<p>继续加油努力！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志/">日志</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spring mvc中后端int类型参数接收" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/10/spring mvc中后端int类型参数接收/" class="article-date">
+  	<time datetime="2016-01-10T14:21:18.000Z" itemprop="datePublished">2016-01-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/10/spring mvc中后端int类型参数接收/">spring mvc中后端int类型参数接收</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在做项目的时候，发现了一个bug. 表单中选填项如果未填，提交表单失败。而且，在追踪这个bug的时候，在后端代码里打上了断电，可是提交表单的请求都没有进入到断点中。看来不是我后端写的逻辑的问题。<br>在查找原因的过程中，经前端提醒，说如果他给我传的一个参数是空，然后我用int类型去接收这个参数，spring mvc在将空值转化为int的时候会不会有问题，从而导致发送请求失败呢？<br>我觉得很有可能，但是当时上线比较急，让前端在提交表单时，我这边如果使用int接收一个参数，他那边传给我这个参数的时候给一个默认值。这样的情况下，测试通过！<br>事后，自己又研究了下。发现，以后如果想接受int类型的参数，需要这样写:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>, defaultValue = <span class="string">"0"</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
+<p>而之前的写法是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
+<p>没有指定defaultValue。<br>以后开发时注意，使用int接受参数时要指定一个<code>defaultValue</code>。<br>至于spring mvc是如果接收参数，并将参数转化为对应的类型，发生这个现象的真实原因在哪里？这些涉及spring mvc原理，我还要慢慢研究。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mac下github + hexo3.1.1快速搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/10/Mac下github + hexo3.1.1快速搭建博客/" class="article-date">
+  	<time datetime="2016-01-10T14:20:17.000Z" itemprop="datePublished">2016-01-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/10/Mac下github + hexo3.1.1快速搭建博客/">Mac下github + hexo3.1.1快速搭建博客</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很早就想自己搭建一个技术博客了，也不一定都写技术相关的内容，每天有什么收获都总结总结，也算是一点一滴的积累。今天终于迈出了第一步，在网上查阅了相关资料后，将我搭建博客的过程总结出来。</p>
+<h1 id="u51C6_u5907_u6761_u4EF6"><a href="#u51C6_u5907_u6761_u4EF6" class="headerlink" title="准备条件"></a>准备条件</h1><ol>
+<li><a href="http://www.github.com" target="_blank" rel="external">github</a>帐号（申请注册过程不细讲）</li>
+<li><a href="https://nodejs.org" target="_blank" rel="external">node.js</a>，我下载的是”Mature and Dependable”版本，下”Latest Features”版本应该也是可以的。</li>
+<li><a href="http://git-scm.com" target="_blank" rel="external">Git</a>, 点击”Downloads for Mac”下载最新版本。</li>
+</ol>
+<h1 id="u4E07_u4E8B_u4FF1_u5907_uFF0C_u53EA_u6B20hexo"><a href="#u4E07_u4E8B_u4FF1_u5907_uFF0C_u53EA_u6B20hexo" class="headerlink" title="万事俱备，只欠hexo"></a>万事俱备，只欠hexo</h1><p>在正确完成以上所有的准备步骤后就可以进入正题了，安装hexo。运行以下命令即可：</p>
+<blockquote>
+<p>npm install -g hexo</p>
+</blockquote>
+<p>之后再运行命令：</p>
+<blockquote>
+<p>npm install</p>
+</blockquote>
+<p><strong>此处注意</strong><br>需要cd到你本地指定的、放博客内容的目录（eg: ~/MyBlog）后，再进行初始化操作。本人开始没注意，一开始直接在Home目录下进行了初始化操作，结果博客内容直接都创建在了Home目录下，Home目录一下很乱。<br>所以，一定要cd到你制定的目录后，运行下面的命令：</p>
+<blockquote>
+<p>hexo init<br>hexo generate<br>hexo server</p>
+</blockquote>
+<p>运行完上面的命令就可以在<a href="http://localhost:4000里看到本地的一个小博客了。" target="_blank" rel="external">http://localhost:4000里看到本地的一个小博客了。</a></p>
+<h1 id="u5173_u8054GitHub"><a href="#u5173_u8054GitHub" class="headerlink" title="关联GitHub"></a>关联GitHub</h1><ol>
+<li>在GitHub上创建一个Repository,名字必须为your_github_nam.github.io, 其中your_github_name的意思是你注册的github的用户名，也就是在这里将your_github_name替换成自己在github上的用户名。例如，我在github上用户名为hueyzhao, 则Repository名: hueyzhao.github.io</li>
+<li>运行命令:<blockquote>
+<p>npm install hexo-deployer-git —save</p>
+</blockquote>
+</li>
+<li>cd到自己指定的本地博客目录, 目录下应该有_config.yml文件，运行命令:<br>vim _config.yml</li>
+<li>在键盘上打开大写键，输入大写的G以跳到文本最后一行。</li>
+<li>对应内容该成以下格式：<br>deploy:<br>type: git<br>repo: <a href="https://your_repository_url" target="_blank" rel="external">https://your_repository_url</a><br>branch: master<br>其中repo的值要替换成刚才在步骤1中创建的库的链接，具体连接可以通过以下步骤找到：</li>
+</ol>
+<ul>
+<li>点击打开步骤1创建的工程</li>
+<li>在右下角找到HTTPS Clone URL并复制URL到repo<br><strong>此处注意</strong><br>在yml中，冒号后面一定要有空格！！！否则deploy时wu’fan’yi</li>
+</ul>
+<h1 id="u90E8_u7F72_u5230github"><a href="#u90E8_u7F72_u5230github" class="headerlink" title="部署到github"></a>部署到github</h1><blockquote>
+<p>hexo clean<br>hexo generate<br>hexo deploy</p>
+</blockquote>
+<p>这样，基本的技术博客就完成了！！！恭喜！！！可以访问个人的GitHub Pages地址，即将刚才创建的工程名复制到浏览器，并按回车。eg:<a href="http://hueyzhao.github.io" target="_blank" rel="external">http://hueyzhao.github.io</a></p>
+<p>主题不太喜欢？<br>去下面的连接选自己喜欢的主题吧！<br><a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">http://www.zhihu.com/question/24422335</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Thinking In Java读书随笔（1）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -408,100 +632,6 @@
 
 
   
-    <article id="post-Mac下github + hexo3.1.1快速搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/10/Mac下github + hexo3.1.1快速搭建博客/" class="article-date">
-  	<time datetime="2016-01-10T14:16:20.000Z" itemprop="datePublished">2016-01-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/10/Mac下github + hexo3.1.1快速搭建博客/">__Mac下github + hexo3.1.1快速搭建博客__</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很早就想自己搭建一个技术博客了，也不一定都写技术相关的内容，每天有什么收获都总结总结，也算是一点一滴的积累。今天终于迈出了第一步，在网上查阅了相关资料后，将我搭建博客的过程总结出来。</p>
-<h1 id="u51C6_u5907_u6761_u4EF6"><a href="#u51C6_u5907_u6761_u4EF6" class="headerlink" title="准备条件"></a>准备条件</h1><ol>
-<li><a href="http://www.github.com" target="_blank" rel="external">github</a>帐号（申请注册过程不细讲）</li>
-<li><a href="https://nodejs.org" target="_blank" rel="external">node.js</a>，我下载的是”Mature and Dependable”版本，下”Latest Features”版本应该也是可以的。</li>
-<li><a href="http://git-scm.com" target="_blank" rel="external">Git</a>, 点击”Downloads for Mac”下载最新版本。</li>
-</ol>
-<h1 id="u4E07_u4E8B_u4FF1_u5907_uFF0C_u53EA_u6B20hexo"><a href="#u4E07_u4E8B_u4FF1_u5907_uFF0C_u53EA_u6B20hexo" class="headerlink" title="万事俱备，只欠hexo"></a>万事俱备，只欠hexo</h1><p>在正确完成以上所有的准备步骤后就可以进入正题了，安装hexo。运行以下命令即可：</p>
-<blockquote>
-<p>npm install -g hexo</p>
-</blockquote>
-<p>之后再运行命令：</p>
-<blockquote>
-<p>npm install</p>
-</blockquote>
-<p><strong>此处注意</strong><br>需要cd到你本地指定的、放博客内容的目录（eg: ~/MyBlog）后，再进行初始化操作。本人开始没注意，一开始直接在Home目录下进行了初始化操作，结果博客内容直接都创建在了Home目录下，Home目录一下很乱。<br>所以，一定要cd到你制定的目录后，运行下面的命令：</p>
-<blockquote>
-<p>hexo init<br>hexo generate<br>hexo server</p>
-</blockquote>
-<p>运行完上面的命令就可以在<a href="http://localhost:4000里看到本地的一个小博客了。" target="_blank" rel="external">http://localhost:4000里看到本地的一个小博客了。</a></p>
-<h1 id="u5173_u8054GitHub"><a href="#u5173_u8054GitHub" class="headerlink" title="关联GitHub"></a>关联GitHub</h1><ol>
-<li>在GitHub上创建一个Repository,名字必须为your_github_nam.github.io, 其中your_github_name的意思是你注册的github的用户名，也就是在这里将your_github_name替换成自己在github上的用户名。例如，我在github上用户名为hueyzhao, 则Repository名: hueyzhao.github.io</li>
-<li>运行命令:<blockquote>
-<p>npm install hexo-deployer-git —save</p>
-</blockquote>
-</li>
-<li>cd到自己指定的本地博客目录, 目录下应该有_config.yml文件，运行命令:<br>vim _config.yml</li>
-<li>在键盘上打开大写键，输入大写的G以跳到文本最后一行。</li>
-<li>对应内容该成以下格式：<br>deploy:<br>type: git<br>repo: <a href="https://your_repository_url" target="_blank" rel="external">https://your_repository_url</a><br>branch: master<br>其中repo的值要替换成刚才在步骤1中创建的库的链接，具体连接可以通过以下步骤找到：</li>
-</ol>
-<ul>
-<li>点击打开步骤1创建的工程</li>
-<li>在右下角找到HTTPS Clone URL并复制URL到repo<br><strong>此处注意</strong><br>在yml中，冒号后面一定要有空格！！！否则deploy时wu’fan’yi</li>
-</ul>
-<h1 id="u90E8_u7F72_u5230github"><a href="#u90E8_u7F72_u5230github" class="headerlink" title="部署到github"></a>部署到github</h1><blockquote>
-<p>hexo clean<br>hexo generate<br>hexo deploy</p>
-</blockquote>
-<p>这样，基本的技术博客就完成了！！！恭喜！！！可以访问个人的GitHub Pages地址，即将刚才创建的工程名复制到浏览器，并按回车。eg:<a href="http://hueyzhao.github.io" target="_blank" rel="external">http://hueyzhao.github.io</a></p>
-<p>主题不太喜欢？<br>去下面的连接选自己喜欢的主题吧！<br><a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">http://www.zhihu.com/question/24422335</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Guawa中tryParse的研究" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -566,162 +696,6 @@
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/guawa-tryParse/">guawa,tryParse</a></li></ul>
 	</div>
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-spring mvc中后端int类型参数接收" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/23/spring mvc中后端int类型参数接收/" class="article-date">
-  	<time datetime="2015-12-23T15:05:47.000Z" itemprop="datePublished">2015-12-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="spring_mvc_u4E2D_u540E_u7AEFint_u7C7B_u578B_u53C2_u6570_u63A5_u6536"><a href="#spring_mvc_u4E2D_u540E_u7AEFint_u7C7B_u578B_u53C2_u6570_u63A5_u6536" class="headerlink" title="spring mvc中后端int类型参数接收"></a>spring mvc中后端int类型参数接收</h1><p>标签（空格分隔）： springmvc</p>
-<hr>
-<p>今天在做项目的时候，发现了一个bug. 表单中选填项如果未填，提交表单失败。而且，在追踪这个bug的时候，在后端代码里打上了断电，可是提交表单的请求都没有进入到断点中。看来不是我后端写的逻辑的问题。<br>在查找原因的过程中，经前端提醒，说如果他给我传的一个参数是空，然后我用int类型去接收这个参数，spring mvc在将空值转化为int的时候会不会有问题，从而导致发送请求失败呢？<br>我觉得很有可能，但是当时上线比较急，让前端在提交表单时，我这边如果使用int接收一个参数，他那边传给我这个参数的时候给一个默认值。这样的情况下，测试通过！<br>事后，自己又研究了下。发现，以后如果想接受int类型的参数，需要这样写:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>, defaultValue = <span class="string">"0"</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
-<p>而之前的写法是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
-<p>没有指定defaultValue。<br>以后开发时注意，使用int接受参数时要指定一个<code>defaultValue</code>。<br>至于spring mvc是如果接收参数，并将参数转化为对应的类型，发生这个现象的真实原因在哪里？这些涉及spring mvc原理，我还要慢慢研究。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-今天接触到的新技术" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/17/今天接触到的新技术/" class="article-date">
-  	<time datetime="2015-12-17T15:56:50.000Z" itemprop="datePublished">2015-12-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="u4ECA_u5929_u63A5_u89E6_u5230_u7684_u65B0_u6280_u672F"><a href="#u4ECA_u5929_u63A5_u89E6_u5230_u7684_u65B0_u6280_u672F" class="headerlink" title="今天接触到的新技术"></a>今天接触到的新技术</h1><p>标签（空格分隔）： 日志</p>
-<hr>
-<p>今天在公司，有发现了公司使用的一些新的技术。也许不算很新了，可能也许是我比较孤落寡闻吧。下面列出来，并列出下一步学习方向。</p>
-<h3 id="1-_Guava"><a href="#1-_Guava" class="headerlink" title="1. Guava"></a>1. Guava</h3><p>谷歌开发的一个针对JAVA集合的一个工具类。今天在做项目的时候遇到，发现竟然能够在方法的参数里面再传递一个方法.</p>
-<ul>
-<li>下一步要研究下这个如何实现的。</li>
-<li>对比Guava与JDK自带方法的异同</li>
-</ul>
-<h3 id="2-_Thrift"><a href="#2-_Thrift" class="headerlink" title="2. Thrift"></a>2. Thrift</h3><p>一个更加轻量级服务器开发框架，Facebook开发的。了解如何使用，搭建出一个Hello World工程</p>
-<h3 id="3-_Require_JS"><a href="#3-_Require_JS" class="headerlink" title="3. Require JS"></a>3. Require JS</h3><p>好久不写前端，不知道前端的技术更新。今天仔细看了看前端的代码，发现看不懂。一查，发现用这个写的，一个比Jquery更加轻量级的前端框架。</p>
-<ul>
-<li>了解如何用这个框架发送ajax请求。</li>
-<li>搞清我最近开发的模块，前端部分的代码，js部分实现原理。</li>
-</ul>
-<h3 id="4-_u5176_u4ED6_u65B9_u9762"><a href="#4-_u5176_u4ED6_u65B9_u9762" class="headerlink" title="4.其他方面"></a>4.其他方面</h3><p>jetty集群配置，以及如何用nignx分发request。</p>
-<p>对了，关于上次mysql中varchar的疑问，设置长度的时候varchar不超过255的时候，是记录varchar长度的部分只需要一个字节。这点确定了。</p>
-<p>继续加油努力！</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/27/New-Post/" class="article-date">
-  	<time datetime="2015-11-27T08:25:58.000Z" itemprop="datePublished">2015-11-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/New-Post/">New Post</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
       
 
       
