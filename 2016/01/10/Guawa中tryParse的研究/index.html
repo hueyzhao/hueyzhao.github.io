@@ -5,25 +5,28 @@
   
   <title>你好环先生</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Guawa中tryParse的研究标签（空格分隔）： guawa,tryParse
+  <meta name="description" content="title:Guawa中tryParse的研究
+标签（空格分隔）： guawa,tryParse
 
 今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。
-为什么要使用tryParseString转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子">
+为什么要使用tryParseString转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你好环先生">
 <meta property="og:url" content="http://yoursite.com/2016/01/10/Guawa中tryParse的研究/index.html">
 <meta property="og:site_name" content="你好环先生">
-<meta property="og:description" content="Guawa中tryParse的研究标签（空格分隔）： guawa,tryParse
+<meta property="og:description" content="title:Guawa中tryParse的研究
+标签（空格分隔）： guawa,tryParse
 
 今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。
-为什么要使用tryParseString转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子">
-<meta property="og:updated_time" content="2016-01-10T07:36:17.000Z">
+为什么要使用tryParseString转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什">
+<meta property="og:updated_time" content="2016-01-10T07:46:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你好环先生">
-<meta name="twitter:description" content="Guawa中tryParse的研究标签（空格分隔）： guawa,tryParse
+<meta name="twitter:description" content="title:Guawa中tryParse的研究
+标签（空格分隔）： guawa,tryParse
 
 今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。
-为什么要使用tryParseString转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子">
+为什么要使用tryParseString转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什">
   
   
     <link rel="icon" href="/favicon.png">
@@ -169,7 +172,7 @@
   
     <div class="article-meta">
       <a href="/2016/01/10/Guawa中tryParse的研究/" class="article-date">
-  	<time datetime="2016-01-10T07:36:17.000Z" itemprop="datePublished">2016-01-10</time>
+  	<time datetime="2016-01-10T07:46:43.000Z" itemprop="datePublished">2016-01-10</time>
 </a>
     </div>
   
@@ -180,7 +183,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Guawa中tryParse的研究">Guawa中tryParse的研究</h1><p>标签（空格分隔）： guawa,tryParse</p>
+        <p>title:Guawa中tryParse的研究</p>
+<p>标签（空格分隔）： guawa,tryParse</p>
 <hr>
 <p>今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。</p>
 <h2 id="为什么要使用tryParse">为什么要使用tryParse</h2><p>String转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子呢，因为JDK提供的这个方法抛一个NumberFormatException，由于这样，每次调用这个方法就必须用try catch来捕获这个异常，或者是再向上抛给上层的方法。<br><strong>为什么需要这个异常</strong><br>可以看到，这个方法接受的参数是个String, 如果传入的参数不是数字，或者格式非法，如传入abc，这样的字符串是无法转换成数字的，所以需要抛出这样的异常。<br><strong>这样有什么不好</strong><br>这样做不是正确的吗，有什么缺点呢？要知道，抛异常代价是很大的，详细原因可以看<a href="http://stackoverflow.com/questions/8255878/try-catch-performance-java" target="_blank" rel="external">这里</a>。总结一下就是：</p>
