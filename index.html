@@ -1,15 +1,718 @@
-<%- partial('_partial/head') %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>你好环先生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Start from small things">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你好环先生">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="你好环先生">
+<meta property="og:description" content="Start from small things">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你好环先生">
+<meta name="twitter:description" content="Start from small things">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
 <body>
   <div id="container">
     <div class="left-col">
-    <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Huanyu</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">Start from small things</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
     </div>
     <div class="mid-col">
-      <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-      <div class="body-wrap"><%- body %></div>
-      <!--<%- partial('_partial/footer') %>-->
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Huanyu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Huanyu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+  
+    <article id="post-Guawa中tryParse的研究" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/10/Guawa中tryParse的研究/" class="article-date">
+  	<time datetime="2016-01-10T08:11:38.000Z" itemprop="datePublished">2016-01-10</time>
+</a>
     </div>
-    <%- partial('_partial/after-footer') %>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title:Guawa中tryParse的研究</p>
+<p>标签（空格分隔）： guawa,tryParse</p>
+<hr>
+<p>今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。</p>
+<h2 id="u4E3A_u4EC0_u4E48_u8981_u4F7F_u7528tryParse"><a href="#u4E3A_u4EC0_u4E48_u8981_u4F7F_u7528tryParse" class="headerlink" title="为什么要使用tryParse"></a>为什么要使用tryParse</h2><p>String转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子呢，因为JDK提供的这个方法抛一个NumberFormatException，由于这样，每次调用这个方法就必须用try catch来捕获这个异常，或者是再向上抛给上层的方法。<br><strong>为什么需要这个异常</strong><br>可以看到，这个方法接受的参数是个String, 如果传入的参数不是数字，或者格式非法，如传入abc，这样的字符串是无法转换成数字的，所以需要抛出这样的异常。<br><strong>这样有什么不好</strong><br>这样做不是正确的吗，有什么缺点呢？要知道，抛异常代价是很大的，详细原因可以看<a href="http://stackoverflow.com/questions/8255878/try-catch-performance-java" target="_blank" rel="external">这里</a>。总结一下就是：</p>
+<ol>
+<li>抛异常必须生成stacktrace。生成过程消耗资源</li>
+<li>异常处理需要特殊的流程控制。</li>
+<li>异常处理消耗时间无法量化。原因：异常处理与stacktrace深度有关，如果stracktrace深度很深，会很消耗资源。<br>所以，如果使用这样的方法，在非法字符串很多的时候，系统抛很多异常是很影响性能的事情。<br>还有一点：程序员写程序，使用这样的方法会很影响程序的鲁棒性。<br>所以，需要重新造一个更好的轮子，来解决这个问题。<h2 id="u89E3_u51B3_u65B9_u6848"><a href="#u89E3_u51B3_u65B9_u6848" class="headerlink" title="解决方案"></a>解决方案</h2>那么，一定要像JDK这样解决String转Integer的问题吗？答案当然是否定的。<br>JDK的实现方式是使用抛异常的方式来解决字符串非法的问题。判断非法字符的方法有很多，不一定用抛异常的方式啊，这种方式是最不好的。<br>方法详见<a href="http://rosettacode.org/wiki/Determine_if_a_string_is_numeric#Java" target="_blank" rel="external">链接</a><br>总结下：</li>
+<li>遍历string确定每个字符都是数字</li>
+<li>使用正则表达式扫描</li>
+<li>使用NumberFormat进行扫描</li>
+<li>使用java.util.Scanner进行扫描</li>
+</ol>
+<p>在Guawa中使用的是方案1,在将字符转化为数字的过程中使用了JDK的Character.digit方法，实现原理如下：</p>
+<blockquote>
+<p>public static Integer tryParse(String string) {<br>    return AndroidInteger.tryParse(string, 10);<br>}</p>
+</blockquote>
+<p>首先调用了guawa自己的AndroidInteger中的tryParse方法，这个方法的第二个参数是基数。基数是什么呢，这样说吧，在这里传入10就会返回string的10进制对应的int值，如果传入的是2或者16则会返回二进制或者16进制对应的int值，例如<code>AndroidInteger.tryParse(&#39;F&#39;,16)</code>则会返回数值15.<br>AndroidInteger的tryParse源码：</p>
+<blockquote>
+<p>static Integer tryParse(String string, int radix) {<br>    checkNotNull(string);<br>    checkArgument(radix &gt;= Character.MIN_RADIX,<br>        “Invalid radix %s, min radix is %s”, radix, Character.MIN_RADIX);<br>    checkArgument(radix &lt;= Character.MAX_RADIX,<br>        “Invalid radix %s, max radix is %s”, radix, Character.MAX_RADIX);<br>    int length = string.length(), i = 0;<br>    if (length == 0) {<br>      return null;<br>    }<br>    boolean negative = string.charAt(i) == ‘-‘;<br>    if (negative &amp;&amp; ++i == length) {<br>      return null;<br>    }<br>    return tryParse(string, i, radix, negative);<br>  }</p>
+</blockquote>
+<p>  可以看到，这里主要先是判断输入参数的合法性（<code>checkArgument</code>方法），再判断数字的符号(<code>boolean negative = string.charAt(i) == &#39;-&#39;;</code>)，剩下的事情都交给了return中的tryParse去做。</p>
+<p>  下面是return中tryParse代码：</p>
+<blockquote>
+<p>private static Integer tryParse(String string, int offset, int radix,<br>      boolean negative) {<br>    int max = Integer.MIN_VALUE / radix;<br>    int result = 0, length = string.length();<br>    while (offset &lt; length) {<br>      int digit = Character.digit(string.charAt(offset++), radix);<br>      if (digit == -1) {<br>        return null;<br>      }<br>      if (max &gt; result) {<br>        return null;<br>      }<br>      int next = result * radix - digit;<br>      if (next &gt; result) {<br>        return null;<br>      }<br>      result = next;<br>    }<br>    if (!negative) {<br>      result = -result;<br>      if (result &lt; 0) {<br>        return null;<br>      }<br>    }</p>
+</blockquote>
+<p>这里可以看到，该方法主要使用了<code>Character.digit(string.charAt(offset++), radix)</code>将字符转化为int，并判断输入字符是否合法。将字符转化成int后<code>int next = result * radix - digit;</code>将原数值还原。最后判断正负号，然后返回值。<br>至此，实现原理大白于天下。</p>
+<p>详细用法点<a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/primitives/Ints.html#tryParse(java.lang.String" target="_blank" rel="external">此处</a>)了解。值得一提的是，如果传入的string为带正号，如<code>String s = &quot;+12345&quot;</code>会被拒绝，认为是非法字符。</p>
+<p>##总结<br>JDK自带的Integer.parseInt()方法会抛异常，抛异常影响程序的性能。所以Guawa重新造轮子，有了tryParse方法。原理为扫描字符串中字符，判断是否为数字。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spring mvc中后端int类型参数接收" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/spring mvc中后端int类型参数接收/" class="article-date">
+  	<time datetime="2015-12-23T15:05:47.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="spring_mvc_u4E2D_u540E_u7AEFint_u7C7B_u578B_u53C2_u6570_u63A5_u6536"><a href="#spring_mvc_u4E2D_u540E_u7AEFint_u7C7B_u578B_u53C2_u6570_u63A5_u6536" class="headerlink" title="spring mvc中后端int类型参数接收"></a>spring mvc中后端int类型参数接收</h1><p>标签（空格分隔）： springmvc</p>
+<hr>
+<p>今天在做项目的时候，发现了一个bug. 表单中选填项如果未填，提交表单失败。而且，在追踪这个bug的时候，在后端代码里打上了断电，可是提交表单的请求都没有进入到断点中。看来不是我后端写的逻辑的问题。<br>在查找原因的过程中，经前端提醒，说如果他给我传的一个参数是空，然后我用int类型去接收这个参数，spring mvc在将空值转化为int的时候会不会有问题，从而导致发送请求失败呢？<br>我觉得很有可能，但是当时上线比较急，让前端在提交表单时，我这边如果使用int接收一个参数，他那边传给我这个参数的时候给一个默认值。这样的情况下，测试通过！<br>事后，自己又研究了下。发现，以后如果想接受int类型的参数，需要这样写:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>, defaultValue = <span class="string">"0"</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
+<p>而之前的写法是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
+<p>没有指定defaultValue。<br>以后开发时注意，使用int接受参数时要指定一个<code>defaultValue</code>。<br>至于spring mvc是如果接收参数，并将参数转化为对应的类型，发生这个现象的真实原因在哪里？这些涉及spring mvc原理，我还要慢慢研究。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-今天接触到的新技术" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/17/今天接触到的新技术/" class="article-date">
+  	<time datetime="2015-12-17T15:56:50.000Z" itemprop="datePublished">2015-12-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u4ECA_u5929_u63A5_u89E6_u5230_u7684_u65B0_u6280_u672F"><a href="#u4ECA_u5929_u63A5_u89E6_u5230_u7684_u65B0_u6280_u672F" class="headerlink" title="今天接触到的新技术"></a>今天接触到的新技术</h1><p>标签（空格分隔）： 日志</p>
+<hr>
+<p>今天在公司，有发现了公司使用的一些新的技术。也许不算很新了，可能也许是我比较孤落寡闻吧。下面列出来，并列出下一步学习方向。</p>
+<h3 id="1-_Guava"><a href="#1-_Guava" class="headerlink" title="1. Guava"></a>1. Guava</h3><p>谷歌开发的一个针对JAVA集合的一个工具类。今天在做项目的时候遇到，发现竟然能够在方法的参数里面再传递一个方法.</p>
+<ul>
+<li>下一步要研究下这个如何实现的。</li>
+<li>对比Guava与JDK自带方法的异同</li>
+</ul>
+<h3 id="2-_Thrift"><a href="#2-_Thrift" class="headerlink" title="2. Thrift"></a>2. Thrift</h3><p>一个更加轻量级服务器开发框架，Facebook开发的。了解如何使用，搭建出一个Hello World工程</p>
+<h3 id="3-_Require_JS"><a href="#3-_Require_JS" class="headerlink" title="3. Require JS"></a>3. Require JS</h3><p>好久不写前端，不知道前端的技术更新。今天仔细看了看前端的代码，发现看不懂。一查，发现用这个写的，一个比Jquery更加轻量级的前端框架。</p>
+<ul>
+<li>了解如何用这个框架发送ajax请求。</li>
+<li>搞清我最近开发的模块，前端部分的代码，js部分实现原理。</li>
+</ul>
+<h3 id="4-_u5176_u4ED6_u65B9_u9762"><a href="#4-_u5176_u4ED6_u65B9_u9762" class="headerlink" title="4.其他方面"></a>4.其他方面</h3><p>jetty集群配置，以及如何用nignx分发request。</p>
+<p>对了，关于上次mysql中varchar的疑问，设置长度的时候varchar不超过255的时候，是记录varchar长度的部分只需要一个字节。这点确定了。</p>
+<p>继续加油努力！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mysql字符存储的一些细节和疑问" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/15/Mysql字符存储的一些细节和疑问/" class="article-date">
+  	<time datetime="2015-12-15T15:01:43.000Z" itemprop="datePublished">2015-12-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mysql_u5B57_u7B26_u5B58_u50A8_u7684_u4E00_u4E9B_u7EC6_u8282_u548C_u7591_u95EE"><a href="#Mysql_u5B57_u7B26_u5B58_u50A8_u7684_u4E00_u4E9B_u7EC6_u8282_u548C_u7591_u95EE" class="headerlink" title="Mysql字符存储的一些细节和疑问"></a>Mysql字符存储的一些细节和疑问</h1><p>标签（空格分隔）： mysql</p>
+<hr>
+<p>来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。<br><strong>中文字符占用问题</strong><br>之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。<br>到底怎么回事？查询了以后发现结论是这样的：<br>GBK编码下一个中文字符占两个字节<br>UTF-8编码下一个中文字符占三个字节<br>UTF-16编码下也是占用两个字节<br>公司的数据库使用的是utf-8的编码，所以是占用三个字节。同事正确！</p>
+<p><strong>varchar长度设计问题</strong><br>另外一个问题是发现公司数据库中varchar的长度都定义为2的幂的长度如（64，128)。不知道为什么。在网上找了好久，发现有的文章说是为了内存对齐，不知道有没有必要，这块没查到相应的文章。</p>
+<p>在查询这个问题的过程中还有写收获：</p>
+<ul>
+<li>mysql的varchar类型的长度在mysql4以前是以字节为单位的。mysql5以后varchar是以字符为单位的。这个没必要再用mysql4去验证了。可以使用以下sql验证：<br><code>SELECT LENGTH(fieldname) FROM tablename</code><br><code>SELECT CHAR_LENGTH(fieldname) FROM tablename</code></li>
+<li>varchar的最长长度为65535个字节。在网上看到篇<a href="https://ruby-china.org/topics/24920" target="_blank" rel="external">文章</a>说utf8下最大能创建到(65535 - 2) / 3 = 21844 余 1，其中减2是因为varchar需要2个字节保存长度，但是实际上我使用了21842才创建成功，不知道是什么原因。</li>
+<li>还有个问题，创建的varchar长度是21842是不是代表着对于非多字节字符，如（abc）来说，使用varchar在数据库中存储的最大长度也是21842？</li>
+<li>当字符数小于等于255时，MySQL只用1个字节来记录，因为2的8次方减1只能存到255。这句话让我有点迷惑，varchar(255)时mysql只用1个字节记录？不是一个中文字符在utf8下就要用3个字节吗？意思是varchar中记录长度的部分只用一个字节吧，是这个意思？</li>
+</ul>
+<p>回头再研究研究！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mac上安装mysql时踩的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/15/Mac上安装mysql时踩的坑/" class="article-date">
+  	<time datetime="2015-12-15T15:01:24.000Z" itemprop="datePublished">2015-12-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mac_u4E0A_u5B89_u88C5mysql_u65F6_u8E29_u7684_u5751"><a href="#Mac_u4E0A_u5B89_u88C5mysql_u65F6_u8E29_u7684_u5751" class="headerlink" title="Mac上安装mysql时踩的坑"></a>Mac上安装mysql时踩的坑</h1><p>标签（空格分隔）： mac,mysql</p>
+<hr>
+<p>今天为了验证之前写的mysql中关于varchar的一点思考，再自己的mac上装了mysql。为了图省事儿下了dmg文件，很省事儿！双击、安装、成功！<br>然后呢？怎么设置root密码，如何连接mysql。不知道了。安装完使用<br><code>ps -ef | grep mysql</code><br>命令发现好像已经有一个实例起来了，可是咋连接？密码是啥不知道。<br>于是我<code>kill</code>了mysql的进程，找了半天得知，可以通过<br><code>mysqld_safe --skip-grant-tables &amp;</code><br>启动mysql，这样启动的mysql不需要安全验证。<br>通过命令<br><code>netstat -an | grep 3306</code><br>来验证服务器已经起来了，起来的时候运行上面的命令能看到已经有一个进程再listen这个端口了。</p>
+<p>再运行<code>mysql</code>命令可以登录数据库。通过网上资料得知可以通过执行命令：</p>
+<blockquote>
+<p>use mysql;<br>UPDATE user SET Password = PASSWORD(‘newpass’) WHERE user = ‘root’;</p>
+</blockquote>
+<p>来修改密码，可是会遇到<code>ERROR 1054 (42S22): Unknown column &#39;password&#39; in &#39;field list&#39;</code>这个错误。</p>
+<p>通过运行<code>describe user;</code>发现确实user表里没有password这个字段,应该是”authentication_string”这个字段，运行：<br><code>update user set authentication_string=password(&#39;1111&#39;) where user=&#39;root&#39;;</code></p>
+<p>解决。这个问题还是浪费我一些时间的，在此记下。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Thinking In Java读书随笔（1）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/03/Thinking In Java读书随笔（1）/" class="article-date">
+  	<time datetime="2015-12-03T15:55:36.000Z" itemprop="datePublished">2015-12-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Thinking_In_Java_u8BFB_u4E66_u968F_u7B14_uFF081_uFF09"><a href="#Thinking_In_Java_u8BFB_u4E66_u968F_u7B14_uFF081_uFF09" class="headerlink" title="Thinking In Java读书随笔（1）"></a>Thinking In Java读书随笔（1）</h1><p>标签（空格分隔）： 日志</p>
+<h2 id="Thinking_In_Java_u8BFB_u4E66_u968F_u7B14_uFF081_uFF09-1"><a href="#Thinking_In_Java_u8BFB_u4E66_u968F_u7B14_uFF081_uFF09-1" class="headerlink" title="Thinking In Java读书随笔（1）"></a>Thinking In Java读书随笔（1）</h2><p>12月1日笔记：<br>为什么是线程而不是进程</p>
+<ol>
+<li>线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）</li>
+<li>JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。</li>
+</ol>
+<p>12月3日随笔：<br>今天看书，发现之前居然看过thinking这书的并行部分，居然自己一点想不起来，看来上学那会儿看书也真是看的不过心。<br>比较有收获的是对Callable接口的熟悉，看这块的时候突然想起来，今年刚刚开始找工作的时候，面试有人问我线程如果要返回结果，如何获取，我居然说不知道，当时确实忘了还有callable接口这回事儿。好吧，太菜了。<br>总之，现在在git上创建了一个工程，以后看thinking有什么练习都在这个工程里啦。<br>今天才知道JDK里面线程优先级有10个等级，不过由于与多数操作系统映射不太好，才只使用MAX_PRIORITY, NORM_PRIORITY, MIN_PRIORITY. </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-啃书的开始" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/30/啃书的开始/" class="article-date">
+  	<time datetime="2015-11-30T15:23:18.000Z" itemprop="datePublished">2015-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u5543_u4E66_u7684_u5F00_u59CB"><a href="#u5543_u4E66_u7684_u5F00_u59CB" class="headerlink" title="啃书的开始"></a>啃书的开始</h1><p>标签（空格分隔）： 日志</p>
+<h2 id="u5543_u4E66_u7684_u5F00_u59CB-1"><a href="#u5543_u4E66_u7684_u5F00_u59CB-1" class="headerlink" title="啃书的开始"></a>啃书的开始</h2><p>2015年的计划提前完成了，2016年中技术部分的计划可以提前开始了。其实已经开始了，搭建技术博客就是第一步。<br>计划2016年的技术学习分三个方向</p>
+<ol>
+<li>啃各种技术书。之前买过一些经典的书，一直没有完全消化。多啃啃书。</li>
+<li>刷算法题。算法一直是我的弱项，之前面试多次倒在算法的脚下，我要征服这个敌人。当然，啃书也能帮助我完成这个目标，不过刷题也还是必须的。</li>
+<li>做一些自己的项目。之前做的爬虫，只能算是半成品。继续！</li>
+</ol>
+<p>在这三项里面，啃书算是容易点的了。因为这比较符合在学校的模式，又加上一些技术书厚又重，不适合带出去看。所以我决定，啃书先开始。<br>啃那一本呢，先再啃下《JAVA编程思想》吧，之前上学的时候，心里还是比较浮躁的，虽然这本书也看过一些，有些收获，但是还是很肤浅的。之前面试的时候，在JUC这块吃不少亏，就先拿这部分开刀吧。</p>
+<p>干起来！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mac下github + hexo3.1.1快速搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/29/Mac下github + hexo3.1.1快速搭建博客/" class="article-date">
+  	<time datetime="2015-11-29T02:08:33.000Z" itemprop="datePublished">2015-11-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Mac下github + hexo3.1.1快速搭建博客</strong></p>
+<p>标签（空格分隔）：博客</p>
+<h2 id="Mac_u4E0Bgithub_+_hexo3-1-1_u5FEB_u901F_u642D_u5EFA_u535A_u5BA2"><a href="#Mac_u4E0Bgithub_+_hexo3-1-1_u5FEB_u901F_u642D_u5EFA_u535A_u5BA2" class="headerlink" title="Mac下github + hexo3.1.1快速搭建博客"></a>Mac下github + hexo3.1.1快速搭建博客</h2><p>很早就想自己搭建一个技术博客了，也不一定都写技术相关的内容，每天有什么收获都总结总结，也算是一点一滴的积累。今天终于迈出了第一步，在网上查阅了相关资料后，将我搭建博客的过程总结出来。</p>
+<h1 id="u51C6_u5907_u6761_u4EF6"><a href="#u51C6_u5907_u6761_u4EF6" class="headerlink" title="准备条件"></a>准备条件</h1><ol>
+<li><a href="http://www.github.com" target="_blank" rel="external">github</a>帐号（申请注册过程不细讲）</li>
+<li><a href="https://nodejs.org" target="_blank" rel="external">node.js</a>，我下载的是”Mature and Dependable”版本，下”Latest Features”版本应该也是可以的。</li>
+<li><a href="http://git-scm.com" target="_blank" rel="external">Git</a>, 点击”Downloads for Mac”下载最新版本。</li>
+</ol>
+<h1 id="u4E07_u4E8B_u4FF1_u5907_uFF0C_u53EA_u6B20hexo"><a href="#u4E07_u4E8B_u4FF1_u5907_uFF0C_u53EA_u6B20hexo" class="headerlink" title="万事俱备，只欠hexo"></a>万事俱备，只欠hexo</h1><p>在正确完成以上所有的准备步骤后就可以进入正题了，安装hexo。运行以下命令即可：</p>
+<blockquote>
+<p>npm install -g hexo</p>
+</blockquote>
+<p>之后再运行命令：</p>
+<blockquote>
+<p>npm install</p>
+</blockquote>
+<p><strong>此处注意</strong><br>需要cd到你本地指定的、放博客内容的目录（eg: ~/MyBlog）后，再进行初始化操作。本人开始没注意，一开始直接在Home目录下进行了初始化操作，结果博客内容直接都创建在了Home目录下，Home目录一下很乱。<br>所以，一定要cd到你制定的目录后，运行下面的命令：</p>
+<blockquote>
+<p>hexo init<br>hexo generate<br>hexo server</p>
+</blockquote>
+<p>运行完上面的命令就可以在<a href="http://localhost:4000里看到本地的一个小博客了。" target="_blank" rel="external">http://localhost:4000里看到本地的一个小博客了。</a></p>
+<h1 id="u5173_u8054GitHub"><a href="#u5173_u8054GitHub" class="headerlink" title="关联GitHub"></a>关联GitHub</h1><ol>
+<li>在GitHub上创建一个Repository,名字必须为your_github_nam.github.io, 其中your_github_name的意思是你注册的github的用户名，也就是在这里将your_github_name替换成自己在github上的用户名。例如，我在github上用户名为hueyzhao, 则Repository名: hueyzhao.github.io</li>
+<li>运行命令:<blockquote>
+<p>npm install hexo-deployer-git —save</p>
+</blockquote>
+</li>
+<li>cd到自己指定的本地博客目录, 目录下应该有_config.yml文件，运行命令:<br>vim _config.yml</li>
+<li>在键盘上打开大写键，输入大写的G以跳到文本最后一行。</li>
+<li>对应内容该成以下格式：<br>deploy:<br>type: git<br>repo: <a href="https://your_repository_url" target="_blank" rel="external">https://your_repository_url</a><br>branch: master<br>其中repo的值要替换成刚才在步骤1中创建的库的链接，具体连接可以通过以下步骤找到：</li>
+</ol>
+<ul>
+<li>点击打开步骤1创建的工程</li>
+<li>在右下角找到HTTPS Clone URL并复制URL到repo<br><strong>此处注意</strong><br>在yml中，冒号后面一定要有空格！！！否则deploy时wu’fan’yi</li>
+</ul>
+<h1 id="u90E8_u7F72_u5230github"><a href="#u90E8_u7F72_u5230github" class="headerlink" title="部署到github"></a>部署到github</h1><blockquote>
+<p>hexo clean<br>hexo generate<br>hexo deploy</p>
+</blockquote>
+<p>这样，基本的技术博客就完成了！！！恭喜！！！可以访问个人的GitHub Pages地址，即将刚才创建的工程名复制到浏览器，并按回车。eg:<a href="http://hueyzhao.github.io" target="_blank" rel="external">http://hueyzhao.github.io</a></p>
+<p>主题不太喜欢？<br>去下面的连接选自己喜欢的主题吧！<br><a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">http://www.zhihu.com/question/24422335</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/27/New-Post/" class="article-date">
+  	<time datetime="2015-11-27T08:25:58.000Z" itemprop="datePublished">2015-11-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/27/New-Post/">New Post</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Huanyu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: undefined,
+		animate: undefined,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
   </div>
 </body>
 </html>
