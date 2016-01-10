@@ -41,7 +41,7 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/img/bagua.jpg" class="js-avatar">
+			<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
 			
 		</a>
 
@@ -178,6 +178,8 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
   
   <div class="article-inner">
     
+      <input type="hidden" class="isFancy" />
+    
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -262,7 +264,7 @@ rdiv class="duoshuo">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 Huanyu
+    		&copy; 2016 Huanyu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -272,18 +274,20 @@ rdiv class="duoshuo">
 </footer>
     </div>
     
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
 
 <script>
 	var yiliaConfig = {
-		fancybox: undefined,
+		fancybox: true,
 		mathjax: undefined,
-		animate: true,
+		animate: undefined,
 		isHome: false,
 		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: true
+		open_in_new: undefined
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
