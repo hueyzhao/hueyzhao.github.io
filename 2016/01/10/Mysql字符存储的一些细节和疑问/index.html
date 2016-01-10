@@ -4,24 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>你好环先生</title>
+  <title>Mysql字符存储的一些细节和疑问 | 你好环先生</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mysql字符存储的一些细节和疑问标签（空格分隔）： mysql
-
-来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-1">
+  <meta name="description" content="来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-16编码下也是占用两个字节公司的数据库使用的是utf-8的编码，所以是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好环先生">
-<meta property="og:url" content="http://yoursite.com/2015/12/15/Mysql字符存储的一些细节和疑问/index.html">
+<meta property="og:title" content="Mysql字符存储的一些细节和疑问">
+<meta property="og:url" content="http://yoursite.com/2016/01/10/Mysql字符存储的一些细节和疑问/index.html">
 <meta property="og:site_name" content="你好环先生">
-<meta property="og:description" content="Mysql字符存储的一些细节和疑问标签（空格分隔）： mysql
-
-来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-1">
-<meta property="og:updated_time" content="2015-12-15T15:01:43.000Z">
+<meta property="og:description" content="来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-16编码下也是占用两个字节公司的数据库使用的是utf-8的编码，所以是">
+<meta property="og:updated_time" content="2016-01-10T14:18:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好环先生">
-<meta name="twitter:description" content="Mysql字符存储的一些细节和疑问标签（空格分隔）： mysql
-
-来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-1">
+<meta name="twitter:title" content="Mysql字符存储的一些细节和疑问">
+<meta name="twitter:description" content="来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。中文字符占用问题之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。到底怎么回事？查询了以后发现结论是这样的：GBK编码下一个中文字符占两个字节UTF-8编码下一个中文字符占三个字节UTF-16编码下也是占用两个字节公司的数据库使用的是utf-8的编码，所以是">
   
   
     <link rel="icon" href="/favicon.png">
@@ -108,7 +102,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
 					</div>
 				</section>
 				
@@ -171,8 +165,8 @@
       <div class="body-wrap"><article id="post-Mysql字符存储的一些细节和疑问" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/15/Mysql字符存储的一些细节和疑问/" class="article-date">
-  	<time datetime="2015-12-15T15:01:43.000Z" itemprop="datePublished">2015-12-15</time>
+      <a href="/2016/01/10/Mysql字符存储的一些细节和疑问/" class="article-date">
+  	<time datetime="2016-01-10T14:18:14.000Z" itemprop="datePublished">2016-01-10</time>
 </a>
     </div>
   
@@ -181,11 +175,31 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mysql字符存储的一些细节和疑问
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Mysql_u5B57_u7B26_u5B58_u50A8_u7684_u4E00_u4E9B_u7EC6_u8282_u548C_u7591_u95EE"><a href="#Mysql_u5B57_u7B26_u5B58_u50A8_u7684_u4E00_u4E9B_u7EC6_u8282_u548C_u7591_u95EE" class="headerlink" title="Mysql字符存储的一些细节和疑问"></a>Mysql字符存储的一些细节和疑问</h1><p>标签（空格分隔）： mysql</p>
-<hr>
-<p>来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。<br><strong>中文字符占用问题</strong><br>之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。<br>到底怎么回事？查询了以后发现结论是这样的：<br>GBK编码下一个中文字符占两个字节<br>UTF-8编码下一个中文字符占三个字节<br>UTF-16编码下也是占用两个字节<br>公司的数据库使用的是utf-8的编码，所以是占用三个字节。同事正确！</p>
+        <p>来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。<br><strong>中文字符占用问题</strong><br>之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。<br>到底怎么回事？查询了以后发现结论是这样的：<br>GBK编码下一个中文字符占两个字节<br>UTF-8编码下一个中文字符占三个字节<br>UTF-16编码下也是占用两个字节<br>公司的数据库使用的是utf-8的编码，所以是占用三个字节。同事正确！</p>
 <p><strong>varchar长度设计问题</strong><br>另外一个问题是发现公司数据库中varchar的长度都定义为2的幂的长度如（64，128)。不知道为什么。在网上找了好久，发现有的文章说是为了内存对齐，不知道有没有必要，这块没查到相应的文章。</p>
 <p>在查询这个问题的过程中还有写收获：</p>
 <ul>
@@ -204,7 +218,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/17/今天接触到的新技术/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/10/Thinking In Java读书随笔（1）/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -214,8 +228,8 @@
     </a>
   
   
-    <a href="/2015/12/15/Mac上安装mysql时踩的坑/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2016/01/10/Mac上安装mysql时踩的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac上安装mysql时踩的坑</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -231,7 +245,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Mysql字符存储的一些细节和疑问" data-title="" data-url="http://yoursite.com/2015/12/15/Mysql字符存储的一些细节和疑问/"></div>
+	<div class="ds-thread" data-thread-key="Mysql字符存储的一些细节和疑问" data-title="Mysql字符存储的一些细节和疑问" data-url="http://yoursite.com/2016/01/10/Mysql字符存储的一些细节和疑问/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

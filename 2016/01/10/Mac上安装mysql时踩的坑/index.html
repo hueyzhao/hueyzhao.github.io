@@ -4,30 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>你好环先生</title>
+  <title>Mac上安装mysql时踩的坑 | 你好环先生</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Thinking In Java读书随笔（1）标签（空格分隔）： 日志
-Thinking In Java读书随笔（1）12月1日笔记：为什么是线程而不是进程
-
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序">
+  <meta name="description" content="今天为了验证之前写的mysql中关于varchar的一点思考，再自己的mac上装了mysql。为了图省事儿下了dmg文件，很省事儿！双击、安装、成功！然后呢？怎么设置root密码，如何连接mysql。不知道了。安装完使用ps -ef | grep mysql命令发现好像已经有一个实例起来了，可是咋连接？密码是啥不知道。于是我kill了mysql的进程，找了半天得知，可以通过mysqld_safe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好环先生">
-<meta property="og:url" content="http://yoursite.com/2015/12/03/Thinking In Java读书随笔（1）/index.html">
+<meta property="og:title" content="Mac上安装mysql时踩的坑">
+<meta property="og:url" content="http://yoursite.com/2016/01/10/Mac上安装mysql时踩的坑/index.html">
 <meta property="og:site_name" content="你好环先生">
-<meta property="og:description" content="Thinking In Java读书随笔（1）标签（空格分隔）： 日志
-Thinking In Java读书随笔（1）12月1日笔记：为什么是线程而不是进程
-
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序">
-<meta property="og:updated_time" content="2015-12-03T15:55:36.000Z">
+<meta property="og:description" content="今天为了验证之前写的mysql中关于varchar的一点思考，再自己的mac上装了mysql。为了图省事儿下了dmg文件，很省事儿！双击、安装、成功！然后呢？怎么设置root密码，如何连接mysql。不知道了。安装完使用ps -ef | grep mysql命令发现好像已经有一个实例起来了，可是咋连接？密码是啥不知道。于是我kill了mysql的进程，找了半天得知，可以通过mysqld_safe">
+<meta property="og:updated_time" content="2016-01-10T14:17:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好环先生">
-<meta name="twitter:description" content="Thinking In Java读书随笔（1）标签（空格分隔）： 日志
-Thinking In Java读书随笔（1）12月1日笔记：为什么是线程而不是进程
-
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序">
+<meta name="twitter:title" content="Mac上安装mysql时踩的坑">
+<meta name="twitter:description" content="今天为了验证之前写的mysql中关于varchar的一点思考，再自己的mac上装了mysql。为了图省事儿下了dmg文件，很省事儿！双击、安装、成功！然后呢？怎么设置root密码，如何连接mysql。不知道了。安装完使用ps -ef | grep mysql命令发现好像已经有一个实例起来了，可是咋连接？密码是啥不知道。于是我kill了mysql的进程，找了半天得知，可以通过mysqld_safe">
   
   
     <link rel="icon" href="/favicon.png">
@@ -114,7 +102,7 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
 					</div>
 				</section>
 				
@@ -174,11 +162,11 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Thinking In Java读书随笔（1）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Mac上安装mysql时踩的坑" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/03/Thinking In Java读书随笔（1）/" class="article-date">
-  	<time datetime="2015-12-03T15:55:36.000Z" itemprop="datePublished">2015-12-03</time>
+      <a href="/2016/01/10/Mac上安装mysql时踩的坑/" class="article-date">
+  	<time datetime="2016-01-10T14:17:47.000Z" itemprop="datePublished">2016-01-10</time>
 </a>
     </div>
   
@@ -187,15 +175,38 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac上安装mysql时踩的坑
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac-mysql/">mac,mysql</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Thinking_In_Java_u8BFB_u4E66_u968F_u7B14_uFF081_uFF09"><a href="#Thinking_In_Java_u8BFB_u4E66_u968F_u7B14_uFF081_uFF09" class="headerlink" title="Thinking In Java读书随笔（1）"></a>Thinking In Java读书随笔（1）</h1><p>标签（空格分隔）： 日志</p>
-<h2 id="Thinking_In_Java_u8BFB_u4E66_u968F_u7B14_uFF081_uFF09-1"><a href="#Thinking_In_Java_u8BFB_u4E66_u968F_u7B14_uFF081_uFF09-1" class="headerlink" title="Thinking In Java读书随笔（1）"></a>Thinking In Java读书随笔（1）</h2><p>12月1日笔记：<br>为什么是线程而不是进程</p>
-<ol>
-<li>线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）</li>
-<li>JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。</li>
-</ol>
-<p>12月3日随笔：<br>今天看书，发现之前居然看过thinking这书的并行部分，居然自己一点想不起来，看来上学那会儿看书也真是看的不过心。<br>比较有收获的是对Callable接口的熟悉，看这块的时候突然想起来，今年刚刚开始找工作的时候，面试有人问我线程如果要返回结果，如何获取，我居然说不知道，当时确实忘了还有callable接口这回事儿。好吧，太菜了。<br>总之，现在在git上创建了一个工程，以后看thinking有什么练习都在这个工程里啦。<br>今天才知道JDK里面线程优先级有10个等级，不过由于与多数操作系统映射不太好，才只使用MAX_PRIORITY, NORM_PRIORITY, MIN_PRIORITY. </p>
+        <p>今天为了验证之前写的mysql中关于varchar的一点思考，再自己的mac上装了mysql。为了图省事儿下了dmg文件，很省事儿！双击、安装、成功！<br>然后呢？怎么设置root密码，如何连接mysql。不知道了。安装完使用<br><code>ps -ef | grep mysql</code><br>命令发现好像已经有一个实例起来了，可是咋连接？密码是啥不知道。<br>于是我<code>kill</code>了mysql的进程，找了半天得知，可以通过<br><code>mysqld_safe --skip-grant-tables &amp;</code><br>启动mysql，这样启动的mysql不需要安全验证。<br>通过命令<br><code>netstat -an | grep 3306</code><br>来验证服务器已经起来了，起来的时候运行上面的命令能看到已经有一个进程再listen这个端口了。</p>
+<p>再运行<code>mysql</code>命令可以登录数据库。通过网上资料得知可以通过执行命令：</p>
+<blockquote>
+<p>use mysql;<br>UPDATE user SET Password = PASSWORD(‘newpass’) WHERE user = ‘root’;</p>
+</blockquote>
+<p>来修改密码，可是会遇到<code>ERROR 1054 (42S22): Unknown column &#39;password&#39; in &#39;field list&#39;</code>这个错误。</p>
+<p>通过运行<code>describe user;</code>发现确实user表里没有password这个字段,应该是”authentication_string”这个字段，运行：<br><code>update user set authentication_string=password(&#39;1111&#39;) where user=&#39;root&#39;;</code></p>
+<p>解决。这个问题还是浪费我一些时间的，在此记下。</p>
 
       
     </div>
@@ -205,18 +216,18 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
     
 <nav id="article-nav">
   
-    <a href="/2015/12/15/Mac上安装mysql时踩的坑/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/10/Mysql字符存储的一些细节和疑问/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          (no title)
+          Mysql字符存储的一些细节和疑问
         
       </div>
     </a>
   
   
-    <a href="/2015/11/30/啃书的开始/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2016/01/10/啃书的开始/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">啃书的开始</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -232,7 +243,7 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Thinking In Java读书随笔（1）" data-title="" data-url="http://yoursite.com/2015/12/03/Thinking In Java读书随笔（1）/"></div>
+	<div class="ds-thread" data-thread-key="Mac上安装mysql时踩的坑" data-title="Mac上安装mysql时踩的坑" data-url="http://yoursite.com/2016/01/10/Mac上安装mysql时踩的坑/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
