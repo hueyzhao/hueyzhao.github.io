@@ -4,33 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Thinking In Java读书随笔（1） | 你好环先生</title>
+  <title>split方法返回的数组的长度不会为0 | 你好环先生</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12月1日笔记：为什么是线程而不是进程
-
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。
-
-12月3日随笔：今天看书，发现之前居然看过thinking这书的并行部分">
+  <meta name="description" content="前两天在公司写代码的时候犯了一个巨傻逼的错误，暴露了JAVA基础不够扎实的缺陷。事情是这样的：我需要将获得到的string用split(&amp;quot;,&amp;quot;)方法将其分成数组。为了防止获得的string不能正确的被split，我对split后的数组进行了判断。大概如下：1234String [] strArray = str.split(&quot;,&quot;);if(strArray != null &amp;a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thinking In Java读书随笔（1）">
-<meta property="og:url" content="http://yoursite.com/2016/01/10/Thinking In Java读书随笔（1）/index.html">
+<meta property="og:title" content="split方法返回的数组的长度不会为0">
+<meta property="og:url" content="http://yoursite.com/2016/01/17/split方法返回的数组的长度不会为0/index.html">
 <meta property="og:site_name" content="你好环先生">
-<meta property="og:description" content="12月1日笔记：为什么是线程而不是进程
-
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。
-
-12月3日随笔：今天看书，发现之前居然看过thinking这书的并行部分">
-<meta property="og:updated_time" content="2016-01-10T14:24:00.000Z">
+<meta property="og:description" content="前两天在公司写代码的时候犯了一个巨傻逼的错误，暴露了JAVA基础不够扎实的缺陷。事情是这样的：我需要将获得到的string用split(&amp;quot;,&amp;quot;)方法将其分成数组。为了防止获得的string不能正确的被split，我对split后的数组进行了判断。大概如下：1234String [] strArray = str.split(&quot;,&quot;);if(strArray != null &amp;a">
+<meta property="og:updated_time" content="2016-01-17T15:30:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Thinking In Java读书随笔（1）">
-<meta name="twitter:description" content="12月1日笔记：为什么是线程而不是进程
-
-线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）
-JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。
-
-12月3日随笔：今天看书，发现之前居然看过thinking这书的并行部分">
+<meta name="twitter:title" content="split方法返回的数组的长度不会为0">
+<meta name="twitter:description" content="前两天在公司写代码的时候犯了一个巨傻逼的错误，暴露了JAVA基础不够扎实的缺陷。事情是这样的：我需要将获得到的string用split(&amp;quot;,&amp;quot;)方法将其分成数组。为了防止获得的string不能正确的被split，我对split后的数组进行了判断。大概如下：1234String [] strArray = str.split(&quot;,&quot;);if(strArray != null &amp;a">
   
   
     <link rel="icon" href="/favicon.png">
@@ -177,11 +162,11 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Thinking In Java读书随笔（1）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-split方法返回的数组的长度不会为0" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/10/Thinking In Java读书随笔（1）/" class="article-date">
-  	<time datetime="2016-01-10T14:24:01.000Z" itemprop="datePublished">2016-01-10</time>
+      <a href="/2016/01/17/split方法返回的数组的长度不会为0/" class="article-date">
+  	<time datetime="2016-01-17T15:30:45.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     </div>
   
@@ -194,7 +179,7 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
         
   
     <h1 class="article-title" itemprop="name">
-      Thinking In Java读书随笔（1）
+      split方法返回的数组的长度不会为0
     </h1>
   
 
@@ -203,7 +188,7 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志/">日志</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java基础/">java基础</a></li></ul>
 	</div>
 
         
@@ -214,12 +199,10 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>12月1日笔记：<br>为什么是线程而不是进程</p>
-<ol>
-<li>线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）</li>
-<li>JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。</li>
-</ol>
-<p>12月3日随笔：<br>今天看书，发现之前居然看过thinking这书的并行部分，居然自己一点想不起来，看来上学那会儿看书也真是看的不过心。<br>比较有收获的是对Callable接口的熟悉，看这块的时候突然想起来，今年刚刚开始找工作的时候，面试有人问我线程如果要返回结果，如何获取，我居然说不知道，当时确实忘了还有callable接口这回事儿。好吧，太菜了。<br>总之，现在在git上创建了一个工程，以后看thinking有什么练习都在这个工程里啦。<br>今天才知道JDK里面线程优先级有10个等级，不过由于与多数操作系统映射不太好，才只使用MAX_PRIORITY, NORM_PRIORITY, MIN_PRIORITY. </p>
+        <p>前两天在公司写代码的时候犯了一个巨傻逼的错误，暴露了JAVA基础不够扎实的缺陷。事情是这样的：<br>我需要将获得到的string用<code>split(&quot;,&quot;)</code>方法将其分成数组。为了防止获得的string不能正确的被split，我对split后的数组进行了判断。大概如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String [] strArray = str.split(<span class="string">","</span>);</span><br><span class="line"><span class="keyword">if</span>(strArray != <span class="keyword">null</span> &amp;&amp; strArray.length !=<span class="number">0</span>)&#123;</span><br><span class="line">    do something here</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>后来发现，传来的<code>str</code>中有很多空字符串如: <code>&#39;&#39;</code>。但是<code>str</code>被split后，还是很顺利的进入了<code>if</code>的逻辑里面执行。</p>
+<p>查java文档，发现split方法如果无法正确split一个字符串，会将字符串本身作为一个整体放进数组中。也就是说，split后的数组长度至少为1。<br>WTF，这种错误都能犯。我弱爆了。</p>
 
       
     </div>
@@ -229,18 +212,18 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
     
 <nav id="article-nav">
   
-    <a href="/2016/01/10/spring mvc中后端int类型参数接收/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/17/foreach循环优于传统for循环/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          spring mvc中后端int类型参数接收
+          foreach循环优于传统for循环
         
       </div>
     </a>
   
   
-    <a href="/2016/01/10/今天接触到的新技术/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">今天接触到的新技术</div>
+    <a href="/2016/01/10/Guawa中tryParse的研究/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Guawa中tryParse的研究</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -256,7 +239,7 @@ JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Thinking In Java读书随笔（1）" data-title="Thinking In Java读书随笔（1）" data-url="http://yoursite.com/2016/01/10/Thinking In Java读书随笔（1）/"></div>
+	<div class="ds-thread" data-thread-key="split方法返回的数组的长度不会为0" data-title="split方法返回的数组的长度不会为0" data-url="http://yoursite.com/2016/01/17/split方法返回的数组的长度不会为0/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

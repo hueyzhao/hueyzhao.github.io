@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
+						<a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 15px;">java基础</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
 					</div>
 				</section>
 				
@@ -162,6 +162,129 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-foreach循环优于传统for循环" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/17/foreach循环优于传统for循环/" class="article-date">
+  	<time datetime="2016-01-17T15:31:02.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/foreach循环优于传统for循环/">foreach循环优于传统for循环</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在用for each语句的时候突然想到for each与普通for循环有什么区别，于是谷歌之。发现答案居然就在《effective java》里，看来还是要多啃书。<br>总结下：</p>
+<ol>
+<li>foreach循环隐藏了索引变量或迭代器，语法更加简介，减少出错可能。</li>
+<li>foreach循环对数组索引边界值只计算一次，传统for循环中，可能由于程序员习惯，将索引边界值写在for的表达式里，会使边界值计算执行多次。从这点上看， foreach循环还有点效率优势。
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java基础/">java基础</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/17/foreach循环优于传统for循环/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-split方法返回的数组的长度不会为0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/17/split方法返回的数组的长度不会为0/" class="article-date">
+  	<time datetime="2016-01-17T15:30:45.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/split方法返回的数组的长度不会为0/">split方法返回的数组的长度不会为0</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前两天在公司写代码的时候犯了一个巨傻逼的错误，暴露了JAVA基础不够扎实的缺陷。事情是这样的：<br>我需要将获得到的string用<code>split(&quot;,&quot;)</code>方法将其分成数组。为了防止获得的string不能正确的被split，我对split后的数组进行了判断。大概如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String [] strArray = str.split(<span class="string">","</span>);</span><br><span class="line"><span class="keyword">if</span>(strArray != <span class="keyword">null</span> &amp;&amp; strArray.length !=<span class="number">0</span>)&#123;</span><br><span class="line">    do something here</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java基础/">java基础</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/17/split方法返回的数组的长度不会为0/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Guawa中tryParse的研究" class="article article-type-post" itemscope itemprop="blogPost">
   
