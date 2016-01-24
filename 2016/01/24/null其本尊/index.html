@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>null是个什么玩意儿！ | 你好环先生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近由于帮公司修改NPE的问题，接触到null比较多，这货也是经常见了，于是就想详细了解一下这是个啥玩意儿。
+#null其本尊#null在很多语言里都有，但是在java中它具有以下特性：
+
+它不是任何类型，所以使用instance of关键字去判断任意null的引用或者null其本尊的时候，返回结果总是false
+它是很多未赋值的对象引用的默认值
+可以简单的理解为null就是JAVA中的一个关键字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="null是个什么玩意儿！">
+<meta property="og:url" content="http://yoursite.com/2016/01/24/null其本尊/index.html">
+<meta property="og:site_name" content="你好环先生">
+<meta property="og:description" content="最近由于帮公司修改NPE的问题，接触到null比较多，这货也是经常见了，于是就想详细了解一下这是个啥玩意儿。
+#null其本尊#null在很多语言里都有，但是在java中它具有以下特性：
+
+它不是任何类型，所以使用instance of关键字去判断任意null的引用或者null其本尊的时候，返回结果总是false
+它是很多未赋值的对象引用的默认值
+可以简单的理解为null就是JAVA中的一个关键字">
+<meta property="og:updated_time" content="2016-01-24T12:26:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="null是个什么玩意儿！">
+<meta name="twitter:description" content="最近由于帮公司修改NPE的问题，接触到null比较多，这货也是经常见了，于是就想详细了解一下这是个啥玩意儿。
+#null其本尊#null在很多语言里都有，但是在java中它具有以下特性：
+
+它不是任何类型，所以使用instance of关键字去判断任意null的引用或者null其本尊的时候，返回结果总是false
+它是很多未赋值的对象引用的默认值
+可以简单的理解为null就是JAVA中的一个关键字">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Huanyu</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Java基础/" style="font-size: 10px;">Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">Start from small things</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Huanyu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Huanyu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-null其本尊" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/null其本尊/" class="article-date">
+  	<time datetime="2016-01-24T12:26:50.000Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      null是个什么玩意儿！
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础/">Java基础</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近由于帮公司修改NPE的问题，接触到null比较多，这货也是经常见了，于是就想详细了解一下这是个啥玩意儿。</p>
+<p>#<strong><em>null其本尊</em></strong>#<br><code>null</code>在很多语言里都有，但是在java中它具有以下特性：</p>
+<ol>
+<li>它不是任何类型，所以使用<code>instance of</code>关键字去判断任意<code>null</code>的引用或者<code>null</code>其本尊的时候，返回结果总是false</li>
+<li>它是很多未赋值的对象引用的默认值</li>
+<li>可以简单的理解为<code>null</code>就是JAVA中的一个关键字而已。</li>
+</ol>
+<p>#<strong><em>null的恶</em></strong>#<br>引用<code>null</code>之父<a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blank" rel="external">C. A. R. Hoare</a>的原话就是:</p>
+<blockquote>
+<p>I call it my billion-dollar mistake.</p>
+</blockquote>
+<p>为什么说是billion-dollar mistake？举个栗子：<br><a id="more"></a><br>JDK的HashMap的get方法文档中有这么一段。</p>
+<blockquote>
+<p>V get(Object key)</p>
+<p>Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.</p>
+<p>If this map permits null values, then a return value of null does not necessarily indicate that the map contains no mapping for the key; it’s also possible that the map explicitly maps the key to null. The containsKey operation may be used to distinguish these two cases.</p>
+</blockquote>
+<p>简单的说，就是一般情况下，如果你调用get方法，返回值是null，代表这个map中没有你想要的key值。但是如果你往map里面put了一个null，这时候再调用get方法，返回值是null就不一定代表map中不存在对应的key了。这种情况下如何判断key是否在map中呢？只有使用<code>containsKey</code>方法解决。</p>
+<p>栗子二:<br>由于允许null存在，在工程中为了避免自己使用到Null的引用，我们经常使用这样的代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(obj == <span class="keyword">null</span>)&#123;</span><br><span class="line">    do something</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    do something <span class="keyword">else</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>先不说不断的使用这样的判断代码长的丑的问题，忙的时候一个疏忽，没有判断null，那工程运行起来代码就很有可能跑NPE异常从而造成程序崩溃等问题。</p>
+<p>#<strong><em>善良人类的解决方案</em></strong>#</p>
+<p>##<strong><em>解决方案：Null Object Pattern</em></strong>##</p>
+<p>有人说了，既然null这么可恶，我规定，编码的时候所有的代码，返回值不能返回null。于是就有了<code>Null Object Pattern</code>。<br>代码写出来长这样:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeSound</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"woof!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NullAnimal</span> <span class="keyword">implements</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结来说，实现一个类并赋予一些初始值，以此类代替null，当Animal类型的对象无值可赋的时候，将NullAnimal赋给它，而不复制null。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Animal nullAnimal = <span class="keyword">new</span> NullAnimal(); <span class="comment">//use this to init a reference</span></span><br><span class="line">        Animal nullValueAnimal = <span class="keyword">null</span>; <span class="comment">//don't use this as default reference value</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>个人觉得这是一个不错的解决办法。但是，对于一个大的工程来说，肯定会产生很多类似NullAnimal的这种类，维护这种类本身有代价，而且，对于有些业务逻辑来说，本身没有一个初始值，也就是说这种方式不适用于所有的业务逻辑。</p>
+<p>##<strong><em>解决方案: Annotation</em></strong>##<br>Intellij带的注解方式:<code>org.jetbrains.annotations.NotNull</code>和<code>org.jetbrains.annotations.Nullable</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.jetbrains.annotations.NotNull;</span><br><span class="line"><span class="keyword">import</span> org.jetbrains.annotations.Nullable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by huanyu on 16/1/24.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="annotation">@NotNull</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">helloWorldNotNull</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello World"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="annotation">@Nullable</span> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">helloWorldNullable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello World"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">helloWorldArg</span><span class="params">(@NotNull String str)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        String result = helloWorldNotNull();</span><br><span class="line">        <span class="keyword">if</span>(result != <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(result);</span><br><span class="line">        &#125;</span><br><span class="line">        Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        test.helloWorldArg(<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在编写程序时，直接在不允许<code>null</code>的参数或者返回值前加<code>@NotNull</code>注解，在允许<code>null</code>的地方加<code>@Nullable</code>注解。<br>这样做的好处有二：</p>
+<ol>
+<li>编码过程中，出现不符合<code>@Nullable</code>或<code>@NotNull</code>规则的代码时，编译器会有警告提示。<br>例如: 上述21行代码中的<code>result</code>的引用已经加过<code>@NotNull</code>注解。对其再次进行非空判断时，如22行<code>result != null</code>。编译器会提示:<code>Condition: &#39;result != null&#39; is always &#39;true&#39;</code><br>第26行会提示: <code>Pass &#39;null&#39; argument to parameter annotted as @NotNull</code></li>
+<li>运行时，程序会检查每个引用的使用，不符合<code>@NotNull</code>或<code>@Nullable</code>规则的，则抛异常。<br>例如: 如果执意要像第26行那样，向一个加了<code>@NotNull</code>的参数传递null时，在运行时会抛异常:<blockquote>
+<p>Exception in thread “main” java.lang.IllegalArgumentException: Argument for @NotNull parameter ‘str’ of Test.helloWorldArg must not be null<br> at Test.helloWorldArg(Test.java)<br> at Test.main(Test.java:26)</p>
+</blockquote>
+</li>
+</ol>
+<p>这种方法优点：</p>
+<ol>
+<li>直接在编码阶段指定那些引用可是是null哪些不行，代码的可读性更强，比上一种方法更方便灵活。</li>
+<li>在编译层次和运行时层次做双重检查，能有效避免不适当的null的传播。<br>缺点：<br>必须引用相应的jar包，就算用Intellij开发也需要。<br>Maven中，引用方式如下:<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>com.intellij<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>annotations<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">version</span>&gt;</span>9.0.4<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>##<strong><em>解决方案3: 静态代码扫描</em></strong><br>在研究Intellij的注解的使用的过程中，我还发现了很多<code>@NotNull</code>、<code>@Nullable</code>、<code>@NonNull</code>等注解，也稍微做了了解。<br>发现其中，还可以用<code>findbugs</code>这种工具，通过静态代码扫描的方式来发现代码中不适当的<code>null</code>的问题。由于觉得静态代码扫描有点亡羊补牢的感觉，所以没有再进行深入研究了。<br>这里只将一些不错的资料，梳理后贴在这里。<br><a href="http://stackoverflow.com/questions/4963300/which-notnull-java-annotation-should-i-use" target="_blank" rel="external">which-notnull-java-annotation-should-i-use</a><br><a href="http://justsomejavaguy.blogspot.ca/2011/08/nullable-null-notnull-notnull-nonnull.html" target="_blank" rel="external">nullable-null-notnull-notnull-nonnull</a><br><a href="http://mindprod.com/jgloss/atnullable.html" target="_blank" rel="external">atnullable</a></p>
+<p>以下是本文一些参考：<br><a href="http://stackoverflow.com/questions/2707322/what-is-null-in-java" target="_blank" rel="external">What is null?</a><br><a href="https://en.wikipedia.org/wiki/Null_Object_pattern#Java" target="_blank" rel="external">Null Object Pattern</a><br><a href="http://javarevisited.blogspot.hk/2014/12/9-things-about-null-in-java.html" target="_blank" rel="external">9 things about null</a><br><a href="http://stackoverflow.com/questions/271526/avoiding-null-statements" target="_blank" rel="external">Avoiding null statements</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/21/由修改NPE问题想到的/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">修改NPE问题的收获</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="null其本尊" data-title="null是个什么玩意儿！" data-url="http://yoursite.com/2016/01/24/null其本尊/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"awesomehuan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Huanyu
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: undefined,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+  </div>
+</body>
+</html>

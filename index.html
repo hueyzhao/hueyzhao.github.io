@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
+						<a href="/tags/Java基础/" style="font-size: 10px;">Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
 					</div>
 				</section>
 				
@@ -162,6 +162,77 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-null其本尊" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/null其本尊/" class="article-date">
+  	<time datetime="2016-01-24T12:26:50.000Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/24/null其本尊/">null是个什么玩意儿！</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近由于帮公司修改NPE的问题，接触到null比较多，这货也是经常见了，于是就想详细了解一下这是个啥玩意儿。</p>
+<p>#<strong><em>null其本尊</em></strong>#<br><code>null</code>在很多语言里都有，但是在java中它具有以下特性：</p>
+<ol>
+<li>它不是任何类型，所以使用<code>instance of</code>关键字去判断任意<code>null</code>的引用或者<code>null</code>其本尊的时候，返回结果总是false</li>
+<li>它是很多未赋值的对象引用的默认值</li>
+<li>可以简单的理解为<code>null</code>就是JAVA中的一个关键字而已。</li>
+</ol>
+<p>#<strong><em>null的恶</em></strong>#<br>引用<code>null</code>之父<a href="https://en.wikipedia.org/wiki/Tony_Hoare">C. A. R. Hoare</a>的原话就是:</p>
+<blockquote>
+<p>I call it my billion-dollar mistake.</p>
+</blockquote>
+<p>为什么说是billion-dollar mistake？举个栗子：<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础/">Java基础</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/24/null其本尊/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-由修改NPE问题想到的" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -740,72 +811,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Mysql字符存储的一些细节和疑问" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/10/Mysql字符存储的一些细节和疑问/" class="article-date">
-  	<time datetime="2016-01-10T14:18:14.000Z" itemprop="datePublished">2016-01-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/10/Mysql字符存储的一些细节和疑问/">Mysql字符存储的一些细节和疑问</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>来到新单位工作一周了，最近做项目。使用mysql的时候发现一个细节问题。<br><strong>中文字符占用问题</strong><br>之前的印象里，中文字符一般占用两个字节，今天与人讨论的时候一个同事纠正我说，mysql存储的时候一个中文字符占三个字节。<br>到底怎么回事？查询了以后发现结论是这样的：<br>GBK编码下一个中文字符占两个字节<br>UTF-8编码下一个中文字符占三个字节<br>UTF-16编码下也是占用两个字节<br>公司的数据库使用的是utf-8的编码，所以是占用三个字节。同事正确！</p>
-<p><strong>varchar长度设计问题</strong><br>另外一个问题是发现公司数据库中varchar的长度都定义为2的幂的长度如（64，128)。不知道为什么。在网上找了好久，发现有的文章说是为了内存对齐，不知道有没有必要，这块没查到相应的文章。</p>
-<p>在查询这个问题的过程中还有写收获：</p>
-<ul>
-<li>mysql的varchar类型的长度在mysql4以前是以字节为单位的。mysql5以后varchar是以字符为单位的。这个没必要再用mysql4去验证了。可以使用以下sql验证：<br><code>SELECT LENGTH(fieldname) FROM tablename</code><br><code>SELECT CHAR_LENGTH(fieldname) FROM tablename</code></li>
-<li>varchar的最长长度为65535个字节。在网上看到篇<a href="https://ruby-china.org/topics/24920" target="_blank" rel="external">文章</a>说utf8下最大能创建到(65535 - 2) / 3 = 21844 余 1，其中减2是因为varchar需要2个字节保存长度，但是实际上我使用了21842才创建成功，不知道是什么原因。</li>
-<li>还有个问题，创建的varchar长度是21842是不是代表着对于非多字节字符，如（abc）来说，使用varchar在数据库中存储的最大长度也是21842？</li>
-<li>当字符数小于等于255时，MySQL只用1个字节来记录，因为2的8次方减1只能存到255。这句话让我有点迷惑，varchar(255)时mysql只用1个字节记录？不是一个中文字符在utf8下就要用3个字节吗？意思是varchar中记录长度的部分只用一个字节吧，是这个意思？</li>
-</ul>
-<p>回头再研究研究！</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
 	</div>
 
       
