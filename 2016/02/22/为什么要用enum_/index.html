@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>为什么要用enum? | 你好环先生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近发现公司的代码中存在大量的使用int枚举的方式，也看到了一些使用enum进行枚举的方式。对此很好奇，进行了研究，估写此文总结，来说一说为什么要使用enum。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么要用enum?">
+<meta property="og:url" content="http://yoursite.com/2016/02/22/为什么要用enum_/index.html">
+<meta property="og:site_name" content="你好环先生">
+<meta property="og:description" content="最近发现公司的代码中存在大量的使用int枚举的方式，也看到了一些使用enum进行枚举的方式。对此很好奇，进行了研究，估写此文总结，来说一说为什么要使用enum。">
+<meta property="og:updated_time" content="2016-02-22T00:31:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为什么要用enum?">
+<meta name="twitter:description" content="最近发现公司的代码中存在大量的使用int枚举的方式，也看到了一些使用enum进行枚举的方式。对此很好奇，进行了研究，估写此文总结，来说一说为什么要使用enum。">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Huanyu</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Java基础/" style="font-size: 15px;">Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">Start from small things</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Huanyu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Huanyu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-为什么要用enum_" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/22/为什么要用enum_/" class="article-date">
+  	<time datetime="2016-02-22T00:31:26.000Z" itemprop="datePublished">2016-02-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      为什么要用enum?
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础/">Java基础</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近发现公司的代码中存在大量的使用int枚举的方式，也看到了一些使用enum进行枚举的方式。对此很好奇，进行了研究，估写此文总结，来说一说为什么要使用enum。<br><a id="more"></a><br>假设现在有两种订单类型：预订订单和非预订订单。<br>需求一： 方法submitOrder根据不同订单类型进行不同的处理。<br>需求二： 给一个对象: OrderResult设置订单类型。</p>
+<p>下面分别用两种枚举方式来实现。<br><strong>int枚举</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntEnumExample</span></span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> PRE_ORDER = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> NOT_PRE_ORDER = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">submitOrder</span><span class="params">(<span class="keyword">int</span> orderType, OrderResult orderResult)</span></span>&#123;</span><br><span class="line">    orderResult.setType(orderType);</span><br><span class="line">    <span class="keyword">if</span>(orderType == PRE_ORDER)&#123;</span><br><span class="line">        do something to process preOrder</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(orderType == NOT_PRE_ORDER)&#123;</span><br><span class="line">        do something to process other order</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</span><br><span class="line">    IntEnumExample example = <span class="keyword">new</span> IntEnumExample();</span><br><span class="line">    <span class="comment">//passing wrong type to the method, however, no compile error and runtime exception here, the bug is hard to be discerned.</span></span><br><span class="line">    example.submitOrder(<span class="number">3</span>, orderResult);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>从上面的例子可以看到，使用int枚举有几个缺点：</p>
+<ol>
+<li>int枚举不做类型检查，可以给上面的submitOrder方法传入任意int值</li>
+<li>代码可读性低，如果没有文档或者源码，不知道给submitOrder传递的值的意义。<br>不仅如此，就像我之前修改项目中sonar扫描代码发现的问题那样，很多人在使用int枚举时，并没有像上例中将int值定义成<code>static final</code>。如果忘记定义变量为final则int枚举的值就可以被修改，如果忘记定义变量为static，就可能出现使用这个int值时，该int值还没有被初始化好。<br>总之，会引起bug。<br>下面来看看使用enum如何做同样的事儿。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntEnumExample</span></span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">enum</span> ORDER_TYPE &#123;</span><br><span class="line">        NOT_PRE_ORDER(<span class="number">1</span>),PRE_ORDER(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">ORDER_TYPE</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">submitOrder</span><span class="params">(ORDER_TYPE orderType, OrderResult orderResult)</span></span>&#123;</span><br><span class="line">    orderResult.setType(orderType);</span><br><span class="line">    <span class="keyword">if</span>(orderType == ORDER_TYPE.PRE_ORDER)&#123;</span><br><span class="line">        do something to process preOrder</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(orderType == ORDER_TYPE.NOT_PRE_ORDER)&#123;</span><br><span class="line">        do something to process other order</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</span><br><span class="line">    IntEnumExample example = <span class="keyword">new</span> IntEnumExample();</span><br><span class="line">    <span class="comment">//compiler will complain error here, if argument is not the type in the enum.</span></span><br><span class="line">    example.submitOrder(ORDER_TYPE.PRE_ORDER, orderResult);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>通过上述代码可以看到，enum很优雅的解决了上一个例子中的问题。</p>
+<ol>
+<li>编译器将对enum进行类型检查，类型不符合的编译器会直接报错。</li>
+<li>相比与int枚举型直接传int数值的方式，enum传递enum类型对象的方式，代码可读性更高，传递的枚举类型一目了然。</li>
+<li>enum类型中的对象本身就是static final的。</li>
+</ol>
+<p><strong><em>重要提示：</em></strong><br>还有一点值得一提的是，如果有时想给每一个枚举类型赋予一个int值，要使用上例中enum定义的方式。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">enum</span> ORDER_TYPE &#123;</span><br><span class="line">       NOT_PRE_ORDER(<span class="number">1</span>),PRE_ORDER(<span class="number">2</span>);</span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> value;</span><br><span class="line">       <span class="function"><span class="keyword">private</span> <span class="title">ORDER_TYPE</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">           <span class="keyword">this</span>.value = value;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>enum本质也是一个类，所以方法<code>ORDER_TYPE(int value)</code>是这个枚举类型的构造函数，故每个枚举类型在初始化的时候需要给构造函数传递响应的值，如： <code>PRE_ORDER(2)</code>。<br>这种情况下，想得到枚举类型对应的int数值时可以通过<code>ORDER_TYPE.PRE_ORDER.value</code>获取。<br>单独提下enum的这种用法是因为，有些人可能会直接使用enum中的<code>ordinal()</code>方法直接实现enum类型与int类型的关联。<code>ordinal()</code>方法返回的是enum类型在被定义时的序数，如<code>ORDER_TYPE.PRE_ORDER.value.ordinal()</code>返回值为0。所以获取枚举类型对应的int数值貌似也可以通过<code>ORDER_TYPE.PRE_ORDER.value.ordinal()+1</code>实现。<br>不要使用<code>ordinal()</code>方法！不要使用<code>ordinal()</code>方法！不要使用<code>ordinal()</code>方法！重要的事情说三遍，为什么？<br>序数是很不可靠的东西，序数是可以改变的，假设有一天<code>ORDER_TYPE</code>的定义变了，需要增加几种类型，或者不小心换了<code>NOT_PRE_ORDER</code>和<code>PRE_ORDER</code>定义时的顺序，如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">enum</span> ORDER_TYPE &#123;</span><br><span class="line">       PRE_ORDER,NOT_PRE_ORDER;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这时就会造成很严重的bug，而且不好发现，编译时，运行时都不会有报错。<br>所以，不要依赖<code>ordianl()</code>方法。</p>
+<p><strong><em>关于enum的其他事情</em></strong><br>《Effective Java》中提到了一种利用enum实现单例模式的方式，这种方式实现单例代码最简介，《Effective Java》极力推荐。实现方式如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singleton &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我很早就知道这种方法，但是我一直不知道其原理。要知道，实现单例模式的时候要注意几个问题:</p>
+<ol>
+<li>防止多线程多次实例化单例</li>
+<li>防止反序列化多次实例化单例</li>
+<li>防止反射攻击<br>一般情况下上述三个问题的解决办法为：</li>
+<li>使用<code>synchronize</code>空值实例创建</li>
+<li>重写<code>readResolve()</code>方法</li>
+<li>将构造方法设置为<code>private</code></li>
+</ol>
+<p>通过这次对enum的研究，我一下知道为什么可以用enum实现单例</p>
+<ol>
+<li>enum是一个类，enum类型的实例是static final的，也就是只能被初始化一次，不可能被多线程实例化多次</li>
+<li>enum本身已经帮助我们实现了<code>Serializable</code>接口。</li>
+<li>enum的构造器是<code>private</code>的，不能被访问。<br>所以enum是实现单例的最好方式。</li>
+</ol>
+<p>关于enum今天先说到这里吧。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/24/null其本尊/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">null是个什么玩意儿！</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="为什么要用enum_" data-title="为什么要用enum?" data-url="http://yoursite.com/2016/02/22/为什么要用enum_/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"awesomehuan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Huanyu
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: undefined,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+  </div>
+</body>
+</html>
