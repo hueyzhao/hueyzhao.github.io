@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Java基础/" style="font-size: 15px;">Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
+						<a href="/tags/Java基础/" style="font-size: 20px;">Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
 					</div>
 				</section>
 				
@@ -162,6 +162,73 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-enum和常量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/27/enum和常量/" class="article-date">
+  	<time datetime="2016-02-27T14:52:54.000Z" itemprop="datePublished">2016-02-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/27/enum和常量/">enum和常量</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天遇到了一个问题，让我对enum以及常量有了更好的认识。<br>上回书说enum类型天生是final和static的。Java中的常量，我们知道也一般定义为static final。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> intConstant = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p>上面这行代码中，变量<code>intConstant</code>就是一个常量，常量以为着，<code>intConstant</code>的值在编译时就能够确定，并且无法改变。<br>这样听起来被定义为<code>static final</code>的变量就能称之为常量了啊，enum天生就是<code>static final</code>的，enum天生就是常量啦？<br><!-- More --><br>答案是，不一定哦~<br><strong><em>发现问题</em></strong><br>今天在使用mybatis写一个dao, 像之前每天做的工作一样，写一个简单的select语句。写的select语句中where子句中有个判断status的字段，这个字段被定义为int，每一个int值对应一个状态。在以前，我会这样写这个sql语句。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Select</span>(Select column1, column2 from sample_table where status = <span class="number">1</span> or status =<span class="number">2</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;SampleTable&gt; <span class="title">getComments</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>现在，我慢慢学会使用enum了，于是我打算把status的状态用enum来表示。于是我开始这样写代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">enum</span> SAMPLE_STATUS&#123;</span><br><span class="line">    STATUS1(<span class="number">1</span>), STATUS2(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SAMPLE_STATUS</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="annotation">@Select</span>(Select column1, column2 from sample_table where status = SAMPLE_STATUS.STATUS1.value or status =SAMPLE_STATUS.STATUS2.value)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;SampleTable&gt; <span class="title">getSampleData</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>可是，我这样写代码后<code>@Select</code>那行编译器报错: “attribute value must be constant”.</p>
+<p>为什么啊，enum不是<code>static final</code>的吗？不应该是常量吗？为什么提示我说这个属性必须是常量呢？</p>
+<p><strong><em>分析问题</em></strong><br>出现了这样的错误，我很好奇。重新看了下自己的代码，并进行了一番谷歌之后，我突然醒悟了。我tm太傻逼了。<br>真相应该是enum是天生<code>static final</code>没错，所以SAMPLE_STATUS.STATUS1是常量，但是，SAMPLE_STATUS.STATUS1对应的这个值就不一定是了。因为这个int值是在enum的构造器中初始化的，也就是说，SAMPLE_STATUS.STATUS1对应的int值，应该是在enum类被加载的时候才被赋值，编译时还没有被赋值。</p>
+<p>为了验证我的想法，我写了下面的代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">enum</span> Fruit&#123;</span><br><span class="line">        Strawberry(<span class="number">1</span>), Banana(<span class="number">2</span>), Kiwi(<span class="number">3</span>);</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">Fruit</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"The value is "</span> + value);</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span>  </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> value = Fruit.Strawberry.value;</span><br><span class="line">        System.out.println(<span class="string">"The value of strawberry is "</span> + value);</span><br><span class="line">        Fruit.Strawberry.setValue(<span class="number">3</span>);</span><br><span class="line">        System.out.print(<span class="string">"The value of strawberry is "</span> + value);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码运行的结果是:<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The <span class="keyword">value</span> <span class="keyword">is</span> <span class="number">1</span></span><br><span class="line">The <span class="keyword">value</span> <span class="keyword">is</span> <span class="number">2</span></span><br><span class="line">The <span class="keyword">value</span> <span class="keyword">is</span> <span class="number">3</span></span><br><span class="line">The <span class="keyword">value</span> <span class="keyword">of</span> strawberry <span class="keyword">is</span> <span class="number">1</span></span><br><span class="line">The <span class="keyword">value</span> <span class="keyword">of</span> strawberry <span class="keyword">is</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>前三行输出结果说明，当enum类加载的时候，会依次调用构造器，生成不同的枚举类实例，实例对应的int值也依次被初始化。<br>后两行输出结果说明，被初始化后的int值也是final的，不可被修改，尽管我调用了<code>setValue</code>方法，试图改变其int的值。</p>
+<p><strong><em>解决问题</em></strong><br>既然enum对应的int值不是常量，我还是想用enum类型去表示我的sql语句中的status字段的值，咋办呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@SelectProvider</span>(type = Provider.class, method = <span class="string">"getSampleData"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;SampleTable&gt; <span class="title">getSampleData</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Provider</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getSampleData</span><span class="params">()</span></span>&#123;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">return</span> <span class="string">"Select column1, column2 from sample_table where status ="</span> + SAMPLE_STATUS.STATUS1.value + <span class="string">"or status ="</span> + SAMPLE_STATUS.STATUS2.value;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注解中要求所有的值必须是常量，但是class中没有这样的要求。<br>所以，使用Provider可以完美的解决这个问题。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础/">Java基础</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-为什么要用enum_" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -696,77 +763,6 @@
 <li>JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。</li>
 </ol>
 <p>12月3日随笔：<br>今天看书，发现之前居然看过thinking这书的并行部分，居然自己一点想不起来，看来上学那会儿看书也真是看的不过心。<br>比较有收获的是对Callable接口的熟悉，看这块的时候突然想起来，今年刚刚开始找工作的时候，面试有人问我线程如果要返回结果，如何获取，我居然说不知道，当时确实忘了还有callable接口这回事儿。好吧，太菜了。<br>总之，现在在git上创建了一个工程，以后看thinking有什么练习都在这个工程里啦。<br>今天才知道JDK里面线程优先级有10个等级，不过由于与多数操作系统映射不太好，才只使用MAX_PRIORITY, NORM_PRIORITY, MIN_PRIORITY. </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志/">日志</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-今天接触到的新技术" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/10/今天接触到的新技术/" class="article-date">
-  	<time datetime="2016-01-10T14:21:58.000Z" itemprop="datePublished">2016-01-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/10/今天接触到的新技术/">今天接触到的新技术</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天在公司，有发现了公司使用的一些新的技术。也许不算很新了，可能也许是我比较孤落寡闻吧。下面列出来，并列出下一步学习方向。</p>
-<h3 id="1-_Guava"><a href="#1-_Guava" class="headerlink" title="1. Guava"></a>1. Guava</h3><p>谷歌开发的一个针对JAVA集合的一个工具类。今天在做项目的时候遇到，发现竟然能够在方法的参数里面再传递一个方法.</p>
-<ul>
-<li>下一步要研究下这个如何实现的。</li>
-<li>对比Guava与JDK自带方法的异同</li>
-</ul>
-<h3 id="2-_Thrift"><a href="#2-_Thrift" class="headerlink" title="2. Thrift"></a>2. Thrift</h3><p>一个更加轻量级服务器开发框架，Facebook开发的。了解如何使用，搭建出一个Hello World工程</p>
-<h3 id="3-_Require_JS"><a href="#3-_Require_JS" class="headerlink" title="3. Require JS"></a>3. Require JS</h3><p>好久不写前端，不知道前端的技术更新。今天仔细看了看前端的代码，发现看不懂。一查，发现用这个写的，一个比Jquery更加轻量级的前端框架。</p>
-<ul>
-<li>了解如何用这个框架发送ajax请求。</li>
-<li>搞清我最近开发的模块，前端部分的代码，js部分实现原理。</li>
-</ul>
-<h3 id="4-_u5176_u4ED6_u65B9_u9762"><a href="#4-_u5176_u4ED6_u65B9_u9762" class="headerlink" title="4.其他方面"></a>4.其他方面</h3><p>jetty集群配置，以及如何用nignx分发request。</p>
-<p>对了，关于上次mysql中varchar的疑问，设置长度的时候varchar不超过255的时候，是记录varchar长度的部分只需要一个字节。这点确定了。</p>
-<p>继续加油努力！</p>
 
       
     </div>
