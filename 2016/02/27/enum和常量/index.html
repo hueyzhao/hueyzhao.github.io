@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="你好环先生">
 <meta property="og:description" content="今天遇到了一个问题，让我对enum以及常量有了更好的认识。上回书说enum类型天生是final和static的。Java中的常量，我们知道也一般定义为static final。例如：1private static final int intConstant = 1;
 上面这行代码中，变量intConstant就是一个常量，常量意味着intConstant的值在编译时就能够确定，并且无法改变。这样听">
-<meta property="og:updated_time" content="2016-02-27T15:06:51.000Z">
+<meta property="og:updated_time" content="2016-02-27T15:09:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="enum和常量">
 <meta name="twitter:description" content="今天遇到了一个问题，让我对enum以及常量有了更好的认识。上回书说enum类型天生是final和static的。Java中的常量，我们知道也一般定义为static final。例如：1private static final int intConstant = 1;
@@ -169,7 +169,7 @@
   
     <div class="article-meta">
       <a href="/2016/02/27/enum和常量/" class="article-date">
-  	<time datetime="2016-02-27T15:06:51.000Z" itemprop="datePublished">2016-02-27</time>
+  	<time datetime="2016-02-27T15:09:56.000Z" itemprop="datePublished">2016-02-27</time>
 </a>
     </div>
   
@@ -204,7 +204,7 @@
       
         <p>今天遇到了一个问题，让我对enum以及常量有了更好的认识。<br>上回书说enum类型天生是final和static的。Java中的常量，我们知道也一般定义为static final。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> intConstant = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
 <p>上面这行代码中，变量<code>intConstant</code>就是一个常量，常量意味着<code>intConstant</code>的值在编译时就能够确定，并且无法改变。<br>这样听起来被定义为<code>static final</code>的变量就能称之为常量了啊，enum天生就是<code>static final</code>的，enum天生就是常量啦？<br><a id="more"></a></p>
-<p>答案是，不一定哦~<br><strong><em>发现问题</em></strong><br>今天在使用mybatis写一个dao, 像之前每天做的工作一样，写一个简单的select语句。写的select语句中where子句中有个判断status的字段，这个字段被定义为int，每一个int值对应一个状态。在以前，我会这样写这个sql语句。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Select</span>(Select column1, column2 from sample_table where status = <span class="number">1</span> or status =<span class="number">2</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;SampleTable&gt; <span class="title">getComments</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>答案是，不一定哦~<br><strong><em>发现问题</em></strong><br>今天在使用mybatis写一个dao, 像之前每天做的工作一样，写一个简单的select语句。写的select语句中where子句中有个判断字段status，这个字段被定义为int，每一个int值对应一个状态。在以前，我会这样写这个sql语句。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Select</span>(Select column1, column2 from sample_table where status = <span class="number">1</span> or status =<span class="number">2</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;SampleTable&gt; <span class="title">getSampleData</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>现在，我慢慢学会使用enum了，于是我打算把status的状态用enum来表示。于是我开始这样写代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">enum</span> SAMPLE_STATUS&#123;</span><br><span class="line">    STATUS1(<span class="number">1</span>), STATUS2(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SAMPLE_STATUS</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="annotation">@Select</span>(Select column1, column2 from sample_table where status = SAMPLE_STATUS.STATUS1.value or status =SAMPLE_STATUS.STATUS2.value)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;SampleTable&gt; <span class="title">getSampleData</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>可是，我这样写代码后<code>@Select</code>那行编译器报错: “attribute value must be constant”.</p>
 <p>为什么啊，enum不是<code>static final</code>的吗？不应该是常量吗？为什么提示我说这个属性必须是常量呢？</p>
