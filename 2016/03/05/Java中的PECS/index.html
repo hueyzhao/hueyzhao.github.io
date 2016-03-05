@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java中的PECS | 你好环先生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近在看Guava源码的过程中发现了通用类型的用法. 通用类型是JAVA5以后引入的新的功能，用处是当定义一个方法或者一个类，但是不太确定需要传入的参数的类型时，这时候使用通用类型。例子如Java中的List,Map。通用类型中有一个通配符?，在读代码的过程中发现了有? extends, ? super的用法，出于好奇，对这个用法进行了一些多一点的研究。发现了一个原则就是：PECS(Produce">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中的PECS">
+<meta property="og:url" content="http://yoursite.com/2016/03/05/Java中的PECS/index.html">
+<meta property="og:site_name" content="你好环先生">
+<meta property="og:description" content="最近在看Guava源码的过程中发现了通用类型的用法. 通用类型是JAVA5以后引入的新的功能，用处是当定义一个方法或者一个类，但是不太确定需要传入的参数的类型时，这时候使用通用类型。例子如Java中的List,Map。通用类型中有一个通配符?，在读代码的过程中发现了有? extends, ? super的用法，出于好奇，对这个用法进行了一些多一点的研究。发现了一个原则就是：PECS(Produce">
+<meta property="og:updated_time" content="2016-03-05T15:11:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java中的PECS">
+<meta name="twitter:description" content="最近在看Guava源码的过程中发现了通用类型的用法. 通用类型是JAVA5以后引入的新的功能，用处是当定义一个方法或者一个类，但是不太确定需要传入的参数的类型时，这时候使用通用类型。例子如Java中的List,Map。通用类型中有一个通配符?，在读代码的过程中发现了有? extends, ? super的用法，出于好奇，对这个用法进行了一些多一点的研究。发现了一个原则就是：PECS(Produce">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Huanyu</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Java基础/" style="font-size: 20px;">Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 15px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 15px;">日志</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">Start from small things</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Huanyu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="/img/bagua.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Huanyu</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hueyzhao" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/huanyu_zh@126.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Java中的PECS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/05/Java中的PECS/" class="article-date">
+  	<time datetime="2016-03-05T15:11:42.000Z" itemprop="datePublished">2016-03-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java中的PECS
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础/">Java基础</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在看Guava源码的过程中发现了通用类型的用法. 通用类型是JAVA5以后引入的新的功能，用处是当定义一个方法或者一个类，但是不太确定需要传入的参数的类型时，这时候使用通用类型。例子如Java中的List<sometype>,Map<keytype, valuetype="">。<br>通用类型中有一个通配符<code>?</code>，在读代码的过程中发现了有<code>? extends</code>, <code>? super</code>的用法，出于好奇，对这个用法进行了一些多一点的研究。发现了一个原则就是：PECS(Producer extends, consumer super)。</keytype,></sometype></p>
+<h3 id="u4E00_u3001_u4EC0_u4E48_u662FPECS_uFF1F"><a href="#u4E00_u3001_u4EC0_u4E48_u662FPECS_uFF1F" class="headerlink" title="一、什么是PECS？"></a>一、什么是PECS？</h3><p>PECS这个概念是从集合类的概念来讲的。<br><a id="more"></a><br><strong><em>生产者和消费者</em></strong><br>首先，解释下生产者消费者的概念。<br>举个栗子:有一个<code>List&lt;ExampleType&gt; producer</code>， 如果如果我们只从这个<code>producer</code>List中读取数据，而不从中添加数据，那这个List就称为<code>Producer</code>，即生产者。<br>同理，如果我们只向一个<code>List&lt;ExampleType&gt; consumer</code>中添加数据，则这样的List就被称为<code>Consumer</code>，即消费者。</p>
+<p><strong><em>生产者使用extends,消费者使用super</em></strong><br>这句话的意思是，当使用<code>?</code>定义一个通用类型的时候如果设计的类是生产者，则应该使用<code>extends</code>关键字为此类型指定一个最高父类，如果设计的类是消费者，那应该用<code>super</code>关键字为此类型指定一个最低子类。<br>是不是听起来还是有点绕？恩，那下面详细聊一聊，生产者和消费者。</p>
+<h3 id="u4E8C_u3001_u751F_u4EA7_u8005_28_3F_extends_29_u7684_u7528_u6CD5_u3002"><a href="#u4E8C_u3001_u751F_u4EA7_u8005_28_3F_extends_29_u7684_u7528_u6CD5_u3002" class="headerlink" title="二、生产者(? extends)的用法。"></a>二、生产者(? extends)的用法。</h3><p>假设，现在有以下三种List<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extends Number&gt; numList = <span class="keyword">new</span> ArrayList&lt;Number&gt;(); </span><br><span class="line">List&lt;? extends Number&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(); </span><br><span class="line">List&lt;? extends Number&gt; doubleList = <span class="keyword">new</span> ArrayList&lt;Double&gt;();</span><br></pre></td></tr></table></figure></p>
+<p>1.<strong><em><code>&lt;? extends Number&gt;</code>最高父类是<code>Number</code>类型</em></strong><br>可以看到，上面三个List在定义的时候都定义成了<code>? extends Number</code>的类型，而<code>Integer</code>, <code>Double</code>都属于<code>Number</code>的子类，所以在实例化<code>List&lt;? extends Number&gt;</code>这样的List时，可以传入任意<code>Number</code>类型的子类以及它自己，进行实例化。<br>但是，不能用Number的父类或者与Number没有继承关系的类进行初始化。例如<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extends Number&gt; objList = <span class="keyword">new</span> ArrayList&lt;Object&gt;(); </span><br><span class="line">List&lt;? extends Number&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br></pre></td></tr></table></figure></p>
+<p>也就是说<code>Number</code>类型是<code>? extends Number</code>代表的类型的最高父类。</p>
+<ol>
+<li><strong><em><code>List&lt;? extends Number&gt;</code>类型的读操作</em></strong><br>由于<code>? extends Number</code>的最高父类是Number类型，所以，从<code>List&lt;? extends Number&gt;</code>中拿出的数据可以保证是<code>Number</code>类型。<br>但是由于<code>List&lt;? extends Number&gt;</code>中即可以放<code>Integer</code>类型的实例，又可以放<code>Double</code>类型的实例，所以从<code>List&lt;? extends Number&gt;</code>中拿出的数据不能保证是<code>Integer</code>或者<code>Double</code>类型。</li>
+<li><strong><em><code>List&lt;? extends Number&gt;</code>类型的写操作</em></strong><br>不能向<code>List&lt;? extends Number&gt;</code>中写入任何数据。<br>为什么？假设Java允许向<code>List&lt;? extends Number&gt;</code>中写入数据，会发生什么？<br>考虑下面的例子:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer intValue = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">doubleList.add(inValue);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>向一个doublieList中添加一个Integer类型的值，能添加成功吗？答案是可以的,<code>? extends Number</code>只检查List中的元素是否是Number类型，Integer是Number类型，所有添加操作没问题。<br>问题是<code>doubleList</code>本意是一个<code>Double</code>类型组成的List，现在里面突然有了一个<code>Integer</code>类型的东西闯了进来，这是什么鬼！<br>所以Java不允许这样的操作。</p>
+<h3 id="u4E09_u3001_u6D88_u8D39_u8005_28_3F_super_29_u7684_u7528_u6CD5"><a href="#u4E09_u3001_u6D88_u8D39_u8005_28_3F_super_29_u7684_u7528_u6CD5" class="headerlink" title="三、消费者(? super)的用法"></a>三、消费者(? super)的用法</h3><p>假设，现在有以下三种List<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? <span class="keyword">super</span> Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(); </span><br><span class="line">List&lt;? <span class="keyword">super</span> Integer&gt; numberList = <span class="keyword">new</span> ArrayList&lt;Number&gt;();</span><br><span class="line">List&lt;? <span class="keyword">super</span> Integer&gt; objList = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><strong><em><code>&lt;? super Integer&gt;</code>类型的最小子类是Integer</em></strong><br><code>&lt;? super Integer&gt;</code>中的super代表了?可以是任意一种Integer的父类类型，所以可以看到上面三个list分别实例化为了<code>Integer</code>、<code>Number</code>和<code>Object</code>类型。<br>但是<code>&lt;? super Integer&gt;</code>不能被实例化为<code>Integer</code>的子类，虽然Integer也没有子类。</li>
+<li><strong><em><code>List&lt;? super Integer&gt;</code>的读操作</em></strong><br>由于<code>&lt;? super Integer&gt;</code>仅仅规定了<code>?</code>的最小子类，没有限制最大父类，所以从<code>List&lt;? super Integer&gt;</code>中读取的数据只能保证是最最大的父类<code>Object</code>。然而，这并没有什么卵用，我们一般写程序的时候很少会直接用<code>Object</code>类型去处理什么业务。<br>所以可以从<code>List&lt;? super Integer&gt;</code>读数据，然而读出来的数据并没有什么卵用。</li>
+<li><strong><em><code>List&lt;? super Integer&gt;</code>的写操作</em></strong><br>好消息！！！写操作是<code>List&lt;? super Integer&gt;</code>的专长。但是，只能向其添加<code>Integer</code>类型或其子类类型。<br>为什么？<br>因为<code>? super Integer</code>中Integer是其最小子类，也就是最低下限，而Java是一门有下限的语言，有节操，要保证下限。<br>好吧，上面是在扯淡。下面正经聊。<br>假设Java允许<code>List&lt;? super Integer&gt;</code>添加Integer的父类元素，会发生什么呢？<br>举个栗子：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? <span class="keyword">super</span> Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(); </span><br><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">intList.add(obj);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上面intList本意是实例化一个<code>Integer</code>类型的List，然而由于<code>List&lt;? super Integer&gt;</code>允许插入Integer的父类，在一个Integer类型的List中突然闯入了一个<code>Object</code>类型的东东，就像男生突然闯进了女厕所一样。<br>然而，男生是不能闯进女厕所的，所以<code>Object</code>类型的数据不能插入到Integer类型的List中，所以Java只允许<code>List&lt;? super Integer&gt;</code>中添加<code>Integer</code>类型或其子类。</p>
+<h3 id="u56DB_u3001PESC_u5E94_u7528_u5B9E_u4F8B"><a href="#u56DB_u3001PESC_u5E94_u7528_u5B9E_u4F8B" class="headerlink" title="四、PESC应用实例"></a>四、PESC应用实例</h3><p>说了大半天，PESC有啥卵用啊？少废话，看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Collections</span> </span>&#123; </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">copy</span>  </span><br><span class="line">  <span class="params">( List&lt;? <span class="keyword">super</span> T&gt; dest, List&lt;? extends T&gt; src)</span> </span>&#123;  </span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;src.size(); i++) </span><br><span class="line">        dest.set(i,src.get(i)); </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中<code>copy</code>方法的功能是将<code>src</code>中的数据复制到<code>dest</code>中，这里<code>src</code>就是生产者，<code>dest</code>就是消费者。<br>设计这样的方法，好处就是，可以复制任意类型的List，通用性特别强。</p>
+<p>参考资料：<br><a href="http://stackoverflow.com/questions/2723397/java-generics-what-is-pecs" target="_blank" rel="external">java-generics-what-is-pecs</a><br><a href="http://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java" target="_blank" rel="external">difference-between-super-t-and-extends-t-in-java</a><br><a href="http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeArguments.html#FAQ103" target="_blank" rel="external">Java Generics FAQs - Type Arguments</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/27/enum和常量/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">enum和常量</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java中的PECS" data-title="Java中的PECS" data-url="http://yoursite.com/2016/03/05/Java中的PECS/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"awesomehuan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Huanyu
+    	</div>
+      	<div class="footer-right">
+      		
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: undefined,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+  </div>
+</body>
+</html>
