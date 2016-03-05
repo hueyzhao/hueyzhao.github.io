@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/05/Java中的PECS/index.html">
 <meta property="og:site_name" content="你好环先生">
 <meta property="og:description" content="最近在看Guava源码的过程中发现了通用类型的用法. 通用类型是JAVA5以后引入的新的功能，用处是当定义一个方法或者一个类，但是不太确定需要传入的参数的类型时，这时候使用通用类型。例子如Java中的List,Map。通用类型中有一个通配符?，在读代码的过程中发现了有? extends, ? super的用法，出于好奇，对这个用法进行了一些多一点的研究。发现了一个原则就是：PECS(Produce">
-<meta property="og:updated_time" content="2016-03-05T15:15:42.000Z">
+<meta property="og:updated_time" content="2016-03-05T15:22:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中的PECS">
 <meta name="twitter:description" content="最近在看Guava源码的过程中发现了通用类型的用法. 通用类型是JAVA5以后引入的新的功能，用处是当定义一个方法或者一个类，但是不太确定需要传入的参数的类型时，这时候使用通用类型。例子如Java中的List,Map。通用类型中有一个通配符?，在读代码的过程中发现了有? extends, ? super的用法，出于好奇，对这个用法进行了一些多一点的研究。发现了一个原则就是：PECS(Produce">
@@ -166,7 +166,7 @@
   
     <div class="article-meta">
       <a href="/2016/03/05/Java中的PECS/" class="article-date">
-  	<time datetime="2016-03-05T15:15:42.000Z" itemprop="datePublished">2016-03-05</time>
+  	<time datetime="2016-03-05T15:22:35.000Z" itemprop="datePublished">2016-03-05</time>
 </a>
     </div>
   
@@ -203,7 +203,10 @@
 <h3 id="u4E00_u3001_u4EC0_u4E48_u662FPECS_uFF1F"><a href="#u4E00_u3001_u4EC0_u4E48_u662FPECS_uFF1F" class="headerlink" title="一、什么是PECS？"></a>一、什么是PECS？</h3><p>PECS这个概念是从集合类的概念来讲的。<br><a id="more"></a><br><strong><em>生产者和消费者</em></strong><br>首先，解释下生产者消费者的概念。<br>举个栗子:有一个<code>List&lt;ExampleType&gt; producer</code>， 如果如果我们只从这个<code>producer</code>List中读取数据，而不从中添加数据，那这个List就称为<code>Producer</code>，即生产者。<br>同理，如果我们只向一个<code>List&lt;ExampleType&gt; consumer</code>中添加数据，则这样的List就被称为<code>Consumer</code>，即消费者。</p>
 <p><strong><em>生产者使用extends,消费者使用super</em></strong><br>这句话的意思是，当使用<code>?</code>定义一个通用类型的时候如果设计的类是生产者，则应该使用<code>extends</code>关键字为此类型指定一个最高父类，如果设计的类是消费者，那应该用<code>super</code>关键字为此类型指定一个最低子类。<br>是不是听起来还是有点绕？恩，那下面详细聊一聊，生产者和消费者。</p>
 <h3 id="u4E8C_u3001_u751F_u4EA7_u8005_28_3F_extends_29_u7684_u7528_u6CD5_u3002"><a href="#u4E8C_u3001_u751F_u4EA7_u8005_28_3F_extends_29_u7684_u7528_u6CD5_u3002" class="headerlink" title="二、生产者(? extends)的用法。"></a>二、生产者(? extends)的用法。</h3><p>假设，现在有以下三种List<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extends Number&gt; numList = <span class="keyword">new</span> ArrayList&lt;Number&gt;(); </span><br><span class="line">List&lt;? extends Number&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(); </span><br><span class="line">List&lt;? extends Number&gt; doubleList = <span class="keyword">new</span> ArrayList&lt;Double&gt;();</span><br></pre></td></tr></table></figure></p>
-<p>1.<strong><em><code>&lt;? extends Number&gt;</code>最高父类是<code>Number</code>类型</em></strong><br>可以看到，上面三个List在定义的时候都定义成了<code>? extends Number</code>的类型，而<code>Integer</code>, <code>Double</code>都属于<code>Number</code>的子类，所以在实例化<code>List&lt;? extends Number&gt;</code>这样的List时，可以传入任意<code>Number</code>类型的子类以及它自己，进行实例化。<br>但是，不能用Number的父类或者与Number没有继承关系的类进行初始化。例如<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extends Number&gt; objList = <span class="keyword">new</span> ArrayList&lt;Object&gt;(); </span><br><span class="line">List&lt;? extends Number&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><strong><em><code>&lt;? extends Number&gt;</code>最高父类是<code>Number</code>类型</em></strong><br>可以看到，上面三个List在定义的时候都定义成了<code>? extends Number</code>的类型，而<code>Integer</code>, <code>Double</code>都属于<code>Number</code>的子类，所以在实例化<code>List&lt;? extends Number&gt;</code>这样的List时，可以传入任意<code>Number</code>类型的子类以及它自己，进行实例化。<br>但是，不能用Number的父类或者与Number没有继承关系的类进行初始化。例如<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extends Number&gt; objList = <span class="keyword">new</span> ArrayList&lt;Object&gt;(); </span><br><span class="line">List&lt;? extends Number&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <p>也就是说<code>Number</code>类型是<code>? extends Number</code>代表的类型的最高父类。</p>
 <ol>
 <li><strong><em><code>List&lt;? extends Number&gt;</code>类型的读操作</em></strong><br>由于<code>? extends Number</code>的最高父类是Number类型，所以，从<code>List&lt;? extends Number&gt;</code>中拿出的数据可以保证是<code>Number</code>类型。<br>但是由于<code>List&lt;? extends Number&gt;</code>中即可以放<code>Integer</code>类型的实例，又可以放<code>Double</code>类型的实例，所以从<code>List&lt;? extends Number&gt;</code>中拿出的数据不能保证是<code>Integer</code>或者<code>Double</code>类型。</li>
