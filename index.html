@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Java基础/" style="font-size: 20px;">Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 20px;">日志</a>
+						<a href="/tags/Java基础/" style="font-size: 20px;">Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 15px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 15px;">日志</a>
 					</div>
 				</section>
 				
@@ -162,6 +162,67 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Java中的PECS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/05/Java中的PECS/" class="article-date">
+  	<time datetime="2016-03-05T15:15:42.000Z" itemprop="datePublished">2016-03-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/05/Java中的PECS/">Java中的PECS</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在看Guava源码的过程中发现了通用类型的用法. 通用类型是JAVA5以后引入的新的功能，用处是当定义一个方法或者一个类，但是不太确定需要传入的参数的类型时，这时候使用通用类型。例子如Java中的List<SomeType>,Map<KeyType, ValueType>。<br>通用类型中有一个通配符<code>?</code>，在读代码的过程中发现了有<code>? extends</code>, <code>? super</code>的用法，出于好奇，对这个用法进行了一些多一点的研究。发现了一个原则就是：PECS(Producer extends, consumer super)。</p>
+<h3 id="u4E00_u3001_u4EC0_u4E48_u662FPECS_uFF1F"><a href="#u4E00_u3001_u4EC0_u4E48_u662FPECS_uFF1F" class="headerlink" title="一、什么是PECS？"></a>一、什么是PECS？</h3><p>PECS这个概念是从集合类的概念来讲的。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java基础/">Java基础</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/05/Java中的PECS/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-enum和常量" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -704,68 +765,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Thinking In Java读书随笔（1）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/10/Thinking In Java读书随笔（1）/" class="article-date">
-  	<time datetime="2016-01-10T14:24:01.000Z" itemprop="datePublished">2016-01-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/10/Thinking In Java读书随笔（1）/">Thinking In Java读书随笔（1）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>12月1日笔记：<br>为什么是线程而不是进程</p>
-<ol>
-<li>线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）</li>
-<li>JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。</li>
-</ol>
-<p>12月3日随笔：<br>今天看书，发现之前居然看过thinking这书的并行部分，居然自己一点想不起来，看来上学那会儿看书也真是看的不过心。<br>比较有收获的是对Callable接口的熟悉，看这块的时候突然想起来，今年刚刚开始找工作的时候，面试有人问我线程如果要返回结果，如何获取，我居然说不知道，当时确实忘了还有callable接口这回事儿。好吧，太菜了。<br>总之，现在在git上创建了一个工程，以后看thinking有什么练习都在这个工程里啦。<br>今天才知道JDK里面线程优先级有10个等级，不过由于与多数操作系统映射不太好，才只使用MAX_PRIORITY, NORM_PRIORITY, MIN_PRIORITY. </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志/">日志</a></li></ul>
 	</div>
 
       
