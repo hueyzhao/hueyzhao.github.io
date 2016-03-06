@@ -10,11 +10,11 @@
 为什么要使用tryParseString转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子呢，因为JDK提供的这个方法抛一个NumberFormatException，由于这样">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Guawa中tryParse的研究">
-<meta property="og:url" content="http://yoursite.com/2016/01/10/Guawa中tryParse的研究/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/03/06/Guawa中tryParse的研究/index.html">
 <meta property="og:site_name" content="你好环先生">
 <meta property="og:description" content="今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。
 为什么要使用tryParseString转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子呢，因为JDK提供的这个方法抛一个NumberFormatException，由于这样">
-<meta property="og:updated_time" content="2016-01-10T14:33:01.000Z">
+<meta property="og:updated_time" content="2016-03-06T09:22:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Guawa中tryParse的研究">
 <meta name="twitter:description" content="今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。
@@ -168,8 +168,8 @@
       <div class="body-wrap"><article id="post-Guawa中tryParse的研究" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/10/Guawa中tryParse的研究/" class="article-date">
-  	<time datetime="2016-01-10T14:33:02.000Z" itemprop="datePublished">2016-01-10</time>
+      <a href="/2016/03/06/Guawa中tryParse的研究/" class="article-date">
+  	<time datetime="2016-03-06T09:22:41.000Z" itemprop="datePublished">2016-03-06</time>
 </a>
     </div>
   
@@ -203,7 +203,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。</p>
-<h2 id="u4E3A_u4EC0_u4E48_u8981_u4F7F_u7528tryParse"><a href="#u4E3A_u4EC0_u4E48_u8981_u4F7F_u7528tryParse" class="headerlink" title="为什么要使用tryParse"></a>为什么要使用tryParse</h2><p>String转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子呢，因为JDK提供的这个方法抛一个NumberFormatException，由于这样，每次调用这个方法就必须用try catch来捕获这个异常，或者是再向上抛给上层的方法。<br><strong>为什么需要这个异常</strong><br>可以看到，这个方法接受的参数是个String, 如果传入的参数不是数字，或者格式非法，如传入abc，这样的字符串是无法转换成数字的，所以需要抛出这样的异常。<br><a id="more"></a><br><strong>这样有什么不好</strong><br>这样做不是正确的吗，有什么缺点呢？要知道，抛异常代价是很大的，详细原因可以看<a href="http://stackoverflow.com/questions/8255878/try-catch-performance-java" target="_blank" rel="external">这里</a>。总结一下就是：</p>
+<h2 id="u4E3A_u4EC0_u4E48_u8981_u4F7F_u7528tryParse"><a href="#u4E3A_u4EC0_u4E48_u8981_u4F7F_u7528tryParse" class="headerlink" title="为什么要使用tryParse"></a>为什么要使用tryParse</h2><p>String转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子呢，因为JDK提供的这个方法抛一个NumberFormatException，由于这样，每次调用这个方法就必须用try catch来捕获这个异常，或者是再向上抛给上层的方法。<br><strong>为什么需要这个异常</strong><br>可以看到，这个方法接受的参数是个String, 如果传入的参数不是数字，或者格式非法，如传入abc，这样的字符串是无法转换成数字的，所以需要抛出这样的异常。<br><strong>这样有什么不好</strong><br>这样做不是正确的吗，有什么缺点呢？要知道，抛异常代价是很大的，详细原因可以看<a href="http://stackoverflow.com/questions/8255878/try-catch-performance-java" target="_blank" rel="external">这里</a>。总结一下就是：</p>
 <ol>
 <li>抛异常必须生成stacktrace。生成过程消耗资源</li>
 <li>异常处理需要特殊的流程控制。</li>
@@ -238,18 +238,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/17/split方法返回的数组的长度不会为0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          split方法返回的数组的长度不会为0
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/10/spring mvc中后端int类型参数接收/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">spring mvc中后端int类型参数接收</div>
+    <a href="/2016/03/05/Java中的PECS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java中的PECS</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -265,7 +256,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Guawa中tryParse的研究" data-title="Guawa中tryParse的研究" data-url="http://yoursite.com/2016/01/10/Guawa中tryParse的研究/"></div>
+	<div class="ds-thread" data-thread-key="Guawa中tryParse的研究" data-title="Guawa中tryParse的研究" data-url="http://yoursite.com/2016/03/06/Guawa中tryParse的研究/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
