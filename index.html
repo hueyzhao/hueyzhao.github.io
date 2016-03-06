@@ -101,7 +101,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Java基础/" style="font-size: 20px;">Java基础</a> <a href="/tags/java基础/" style="font-size: 15px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 15px;">日志</a>
+						<a href="/tags/Java基础/" style="font-size: 20px;">Java基础</a> <a href="/tags/guava-Java基础/" style="font-size: 10px;">guava Java基础</a> <a href="/tags/guawa-tryParse/" style="font-size: 10px;">guawa,tryParse</a> <a href="/tags/java基础/" style="font-size: 15px;">java基础</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/mac-mysql/" style="font-size: 10px;">mac,mysql</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/日志/" style="font-size: 15px;">日志</a>
 					</div>
 				</section>
 				
@@ -162,6 +162,150 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-guava集合类中神奇transform方法研究" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/06/guava集合类中神奇transform方法研究/" class="article-date">
+  	<time datetime="2016-03-06T09:33:16.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/06/guava集合类中神奇transform方法研究/">guava集合类中神奇transform方法研究</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前我就提过guava这个东西，最近在项目中使用的越来越多，越来越发现这东西好神奇 ，用起来真顺手。不得不佩服，谷歌出品，必属精品。<br>平时业务开发中经常遇到需要转换List的需求。例如，假设现在有一个类如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> id;</span><br><span class="line">    <span class="keyword">private</span> String costomerName;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//below is getters and setters</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后有这样一个<code>List&lt;Customer&gt; customerList</code>的List，现在我想要一个包含<code>Customer</code>的<code>id</code>的List: <code>List&lt;Long&gt; customerIdList</code>。那如何做呢？<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/guava-Java基础/">guava Java基础</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/06/guava集合类中神奇transform方法研究/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Guawa中tryParse的研究" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/06/Guawa中tryParse的研究/" class="article-date">
+  	<time datetime="2016-03-06T09:31:38.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/06/Guawa中tryParse的研究/">Guawa中tryParse的研究</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天发现项目中在转化string为int时使用了guawa的Ints.tryParse方法。之前没有见过这样的用法，好奇，对其相关知识进行了研究。</p>
+<h2 id="u4E3A_u4EC0_u4E48_u8981_u4F7F_u7528tryParse"><a href="#u4E3A_u4EC0_u4E48_u8981_u4F7F_u7528tryParse" class="headerlink" title="为什么要使用tryParse"></a>为什么要使用tryParse</h2><p>String转Integer，JDK本身就提供了响应的方法。就是Integer.parseInt(String s)，那为什么还要再造轮子呢，因为JDK提供的这个方法抛一个NumberFormatException，由于这样，每次调用这个方法就必须用try catch来捕获这个异常，或者是再向上抛给上层的方法。<br><strong>为什么需要这个异常</strong><br>可以看到，这个方法接受的参数是个String, 如果传入的参数不是数字，或者格式非法，如传入abc，这样的字符串是无法转换成数字的，所以需要抛出这样的异常。<br><strong>这样有什么不好</strong><br>这样做不是正确的吗，有什么缺点呢？要知道，抛异常代价是很大的，详细原因可以看<a href="http://stackoverflow.com/questions/8255878/try-catch-performance-java" target="_blank" rel="external">这里</a>。总结一下就是：</p>
+<ol>
+<li>抛异常必须生成stacktrace。生成过程消耗资源</li>
+<li>异常处理需要特殊的流程控制。</li>
+<li>异常处理消耗时间无法量化。原因：异常处理与stacktrace深度有关，如果stracktrace深度很深，会很消耗资源。<br>所以，如果使用这样的方法，在非法字符串很多的时候，系统抛很多异常是很影响性能的事情。<br>还有一点：程序员写程序，使用这样的方法会很影响程序的鲁棒性。<br>所以，需要重新造一个更好的轮子，来解决这个问题。<h2 id="u89E3_u51B3_u65B9_u6848"><a href="#u89E3_u51B3_u65B9_u6848" class="headerlink" title="解决方案"></a>解决方案</h2>那么，一定要像JDK这样解决String转Integer的问题吗？答案当然是否定的。<br>JDK的实现方式是使用抛异常的方式来解决字符串非法的问题。判断非法字符的方法有很多，不一定用抛异常的方式啊，这种方式是最不好的。<br>方法详见<a href="http://rosettacode.org/wiki/Determine_if_a_string_is_numeric#Java" target="_blank" rel="external">链接</a><br>总结下：</li>
+<li>遍历string确定每个字符都是数字</li>
+<li>使用正则表达式扫描</li>
+<li>使用NumberFormat进行扫描</li>
+<li>使用java.util.Scanner进行扫描</li>
+</ol>
+<p>在Guawa中使用的是方案1,在将字符转化为数字的过程中使用了JDK的Character.digit方法，实现原理如下：</p>
+<blockquote>
+<p>public static Integer tryParse(String string) {<br>    return AndroidInteger.tryParse(string, 10);<br>}</p>
+</blockquote>
+<p>首先调用了guawa自己的AndroidInteger中的tryParse方法，这个方法的第二个参数是基数。基数是什么呢，这样说吧，在这里传入10就会返回string的10进制对应的int值，如果传入的是2或者16则会返回二进制或者16进制对应的int值，例如<code>AndroidInteger.tryParse(&#39;F&#39;,16)</code>则会返回数值15.<br>AndroidInteger的tryParse源码：</p>
+<blockquote>
+<p>static Integer tryParse(String string, int radix) {<br>    checkNotNull(string);<br>    checkArgument(radix &gt;= Character.MIN_RADIX,<br>        “Invalid radix %s, min radix is %s”, radix, Character.MIN_RADIX);<br>    checkArgument(radix &lt;= Character.MAX_RADIX,<br>        “Invalid radix %s, max radix is %s”, radix, Character.MAX_RADIX);<br>    int length = string.length(), i = 0;<br>    if (length == 0) {<br>      return null;<br>    }<br>    boolean negative = string.charAt(i) == ‘-‘;<br>    if (negative &amp;&amp; ++i == length) {<br>      return null;<br>    }<br>    return tryParse(string, i, radix, negative);<br>  }</p>
+</blockquote>
+<p>  可以看到，这里主要先是判断输入参数的合法性（<code>checkArgument</code>方法），再判断数字的符号(<code>boolean negative = string.charAt(i) == &#39;-&#39;;</code>)，剩下的事情都交给了return中的tryParse去做。</p>
+<p>  下面是return中tryParse代码：</p>
+<blockquote>
+<p>private static Integer tryParse(String string, int offset, int radix,<br>      boolean negative) {<br>    int max = Integer.MIN_VALUE / radix;<br>    int result = 0, length = string.length();<br>    while (offset &lt; length) {<br>      int digit = Character.digit(string.charAt(offset++), radix);<br>      if (digit == -1) {<br>        return null;<br>      }<br>      if (max &gt; result) {<br>        return null;<br>      }<br>      int next = result * radix - digit;<br>      if (next &gt; result) {<br>        return null;<br>      }<br>      result = next;<br>    }<br>    if (!negative) {<br>      result = -result;<br>      if (result &lt; 0) {<br>        return null;<br>      }<br>    }</p>
+</blockquote>
+<p>这里可以看到，该方法主要使用了<code>Character.digit(string.charAt(offset++), radix)</code>将字符转化为int，并判断输入字符是否合法。将字符转化成int后<code>int next = result * radix - digit;</code>将原数值还原。最后判断正负号，然后返回值。<br>至此，实现原理大白于天下。</p>
+<p>详细用法点<a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/primitives/Ints.html#tryParse(java.lang.String" target="_blank" rel="external">此处</a>)了解。值得一提的是，如果传入的string为带正号，如<code>String s = &quot;+12345&quot;</code>会被拒绝，认为是非法字符。</p>
+<p>##总结<br>JDK自带的Integer.parseInt()方法会抛异常，抛异常影响程序的性能。所以Guawa重新造轮子，有了tryParse方法。原理为扫描字符串中字符，判断是否为数字。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/guawa-tryParse/">guawa,tryParse</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Java中的PECS" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -649,127 +793,6 @@
         <p class="article-more-link">
           <a  href="/2016/01/17/split方法返回的数组的长度不会为0/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-spring mvc中后端int类型参数接收" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/10/spring mvc中后端int类型参数接收/" class="article-date">
-  	<time datetime="2016-01-10T14:24:28.000Z" itemprop="datePublished">2016-01-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/10/spring mvc中后端int类型参数接收/">spring mvc中后端int类型参数接收</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天在做项目的时候，发现了一个bug. 表单中选填项如果未填，提交表单失败。而且，在追踪这个bug的时候，在后端代码里打上了断电，可是提交表单的请求都没有进入到断点中。看来不是我后端写的逻辑的问题。<br>在查找原因的过程中，经前端提醒，说如果他给我传的一个参数是空，然后我用int类型去接收这个参数，spring mvc在将空值转化为int的时候会不会有问题，从而导致发送请求失败呢？<br>我觉得很有可能，但是当时上线比较急，让前端在提交表单时，我这边如果使用int接收一个参数，他那边传给我这个参数的时候给一个默认值。这样的情况下，测试通过！<br>事后，自己又研究了下。发现，以后如果想接受int类型的参数，需要这样写:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>, defaultValue = <span class="string">"0"</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
-<p>而之前的写法是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RequestParam</span>(value = <span class="string">"city_id"</span>, required = <span class="keyword">false</span>) <span class="keyword">int</span> cityId</span><br></pre></td></tr></table></figure></p>
-<p>没有指定defaultValue。<br>以后开发时注意，使用int接受参数时要指定一个<code>defaultValue</code>。<br>至于spring mvc是如果接收参数，并将参数转化为对应的类型，发生这个现象的真实原因在哪里？这些涉及spring mvc原理，我还要慢慢研究。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Thinking In Java读书随笔（1）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/10/Thinking In Java读书随笔（1）/" class="article-date">
-  	<time datetime="2016-01-10T14:24:01.000Z" itemprop="datePublished">2016-01-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/10/Thinking In Java读书随笔（1）/">Thinking In Java读书随笔（1）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>12月1日笔记：<br>为什么是线程而不是进程</p>
-<ol>
-<li>线程机制提供了与操作系统相比更松耦合的实现方式，如果操作系统本身不支持多进程，那基于多进程设计的语言写出的程序就无法正常运行了。（透明的）</li>
-<li>JAVA的多线程机制是通过CPU时间分片实现的，这样每个线程本身都觉得自己一直在占用CPU，使得程序编写者无需考虑CPU分配，而且可随意扩展。</li>
-</ol>
-<p>12月3日随笔：<br>今天看书，发现之前居然看过thinking这书的并行部分，居然自己一点想不起来，看来上学那会儿看书也真是看的不过心。<br>比较有收获的是对Callable接口的熟悉，看这块的时候突然想起来，今年刚刚开始找工作的时候，面试有人问我线程如果要返回结果，如何获取，我居然说不知道，当时确实忘了还有callable接口这回事儿。好吧，太菜了。<br>总之，现在在git上创建了一个工程，以后看thinking有什么练习都在这个工程里啦。<br>今天才知道JDK里面线程优先级有10个等级，不过由于与多数操作系统映射不太好，才只使用MAX_PRIORITY, NORM_PRIORITY, MIN_PRIORITY. </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志/">日志</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>
